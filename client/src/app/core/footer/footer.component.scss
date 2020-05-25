@@ -23,13 +23,18 @@
     & a {
       text-decoration: none;
       color: rgb(41, 41, 41);
+      transition: all .3s ease;
+
+      &:hover {
+        color: rgb(0, 213, 100);
+      }
 
       &::after {
         content: '';
         display: block;
         width: 0;
         height: 2px;
-        background: #000;
+        background: rgb(0, 213, 100);
         transition: width .3s;
       }
 

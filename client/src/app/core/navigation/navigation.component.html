@@ -31,6 +31,20 @@
     <li class="navigation__element">
       <a href="#" class="navigation__link">Flowerpot</a>
     </li>
+    <li
+      class="navigation__element--icon"
+      (mouseover)="iconIsHover=true"
+      (mouseleave)="iconIsHover=false">
+      <a href="#" class="navigation-desktop__link navigation-desktop__link--icon">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          class="navigation__link--icon"
+          [ngStyle]="{'color': iconIsHover == true ? 'rgb(0, 213, 100)' : 'black' }">
+          shopping_basket
+        </mat-icon>
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -50,6 +64,11 @@
     </li>
     <li class="navigation-desktop__element">
       <a href="#" class="navigation-desktop__link">Flowerpot</a>
+    </li>
+    <li class="navigation-desktop__element navigation-desktop__element--icon">
+      <a href="#" class="navigation-desktop__link">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_basket</mat-icon>
+      </a>
     </li>
   </ul>
 </nav>

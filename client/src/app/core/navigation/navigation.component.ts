@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit {
   }
 
   menuIsActive: boolean = false;
+  iconIsHover: boolean = false;
 
   toggleMenu(): void {
     this.menuIsActive = !this.menuIsActive;
