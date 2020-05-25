@@ -1,0 +1,52 @@
+.footer {
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+  box-sizing: border-box;
+  border-top: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+
+  &__box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__link {
+    margin: 7px;
+
+    & a {
+      text-decoration: none;
+      color: rgb(41, 41, 41);
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #000;
+        transition: width .3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 770px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__box {
+      width: auto;
+    }
+  }
+}

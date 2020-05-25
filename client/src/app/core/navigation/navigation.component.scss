@@ -1,0 +1,72 @@
+@import "variables";
+
+.navigation-desktop {
+  display: none;
+}
+
+.navigation {
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: height .2s ease;
+
+  &__title {
+    margin-left: 15px;
+    font-size: 1.5rem;
+  }
+
+  &--disable {
+    height: 50px;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin-top: 50px;
+
+    &--disable {
+      display: none;
+    }
+  }
+
+  &__element {
+    margin: 0 auto 10px;
+    @include button(80%);
+  }
+
+  &__link {
+    @include link;
+  }
+}
+
+@include button-burger;
+
+@media (min-width: 770px) {
+  .navigation {
+    display: none;
+  }
+
+  .navigation-desktop {
+    display: block;
+
+    &__list {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__element {
+      margin-right: 25px;
+      @include button(120px);
+    }
+
+    &__link {
+      @include link;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<nav
+  class="navigation"
+  [class.navigation--disable]="!menuIsActive">
+
+  <button
+    class="hamburger"
+    aria-label="Menu"
+    (click)="toggleMenu()"
+    [class.hamburger--active]="menuIsActive">
+
+  <span class="hamburger__container" tabindex="-1">
+    <span class="hamburger__bars"></span>
+  </span>
+  </button>
+
+  <ul
+    class="navigation__list"
+    [class.navigation__list--disable]="!menuIsActive">
+    <li class="navigation__element">
+      <a href="#" class="navigation__link">Glasses</a>
+    </li>
+    <li class="navigation__element">
+      <a href="#" class="navigation__link">Candles</a>
+    </li>
+    <li class="navigation__element">
+      <a href="#" class="navigation__link">Mirrors</a>
+    </li>
+    <li class="navigation__element">
+      <a href="#" class="navigation__link">Vases</a>
+    </li>
+    <li class="navigation__element">
+      <a href="#" class="navigation__link">Flowerpot</a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navigation-desktop">
+  <ul class="navigation-desktop__list">
+    <li class="navigation-desktop__element">
+      <a href="#" class="navigation-desktop__link">Glasses</a>
+    </li>
+    <li class="navigation-desktop__element">
+      <a href="#" class="navigation-desktop__link">Candles</a>
+    </li>
+    <li class="navigation-desktop__element">
+      <a href="#" class="navigation-desktop__link">Mirrors</a>
+    </li>
+    <li class="navigation-desktop__element">
+      <a href="#" class="navigation-desktop__link">Vases</a>
+    </li>
+    <li class="navigation-desktop__element">
+      <a href="#" class="navigation-desktop__link">Flowerpot</a>
+    </li>
+  </ul>
+</nav>

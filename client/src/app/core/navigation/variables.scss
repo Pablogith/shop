@@ -1,0 +1,103 @@
+@mixin button-burger {
+  .hamburger {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &:focus {
+      & > .hamburger__container {
+        box-shadow: 0 0 2px 2px #51a7e8;
+      }
+    }
+  }
+
+  .hamburger__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 35px;
+    height: 30px;
+  }
+
+  .hamburger__bars {
+    position: absolute;
+    width: 35px;
+    height: 3px;
+    background-color: #000;
+    transition: transform 220ms ease-in-out;
+
+    &:before, &:after {
+      display: block;
+      position: absolute;
+      width: 35px;
+      height: 3px;
+      background-color: #000;
+      content: '';
+    }
+
+    &:before {
+      top: -12px;
+      transition: top 100ms 250ms ease-in, transform 220ms ease-in-out;
+    }
+
+    &:after {
+      bottom: -12px;
+      transition: bottom 100ms 250ms ease-in,
+      transform 220ms ease-in-out;
+    }
+  }
+
+  .hamburger--active {
+    .hamburger__bars {
+      transform: rotate(225deg);
+      transition: transform 220ms 120ms ease-in-out;
+
+      &:before {
+        top: 0;
+        transition: top 100ms ease-out;
+      }
+
+      &:after {
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 100ms ease-out,
+        transform 220ms 120ms ease-in-out;
+      }
+    }
+  }
+
+  .hamburger, .hamburger__container {
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+
+@mixin button($width) {
+  width: $width;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 15px;
+  transition: all .2s ease;
+
+  &:hover {
+    background: rgb(205, 205, 205);
+  }
+}
+
+@mixin link {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
