@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './modules/home/home.module#HomeModule'
+  },
+  {
+    path: 'bookmark',
+    loadChildren: './modules/bookmarks/bookmarks.module#BookmarksModule'
   }
 ];
 

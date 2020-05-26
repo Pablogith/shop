@@ -1,0 +1,15 @@
+.section {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+
+  &__empty {
+    text-align: center;
+    margin-top: 50px;
+
+    & span {
+      color: rgb(0, 213, 100);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+}

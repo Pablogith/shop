@@ -16,21 +16,20 @@
   <ul
     class="navigation__list"
     [class.navigation__list--disable]="!menuIsActive">
-    <li class="navigation__element">
-      <a href="#" class="navigation__link">Glasses</a>
+
+    <li
+      *ngFor="let bookmark of bookmarks"
+      class="navigation__element"
+      [routerLinkActive]="['navigation__element--active']"
+      (click)="hiddenMenu()">
+      <a
+        [routerLink]="['/bookmark', bookmark.name]"
+        [routerLinkActive]="['navigation__link--active']"
+        class="navigation__link">
+        {{  bookmark.name | titlecase }}
+      </a>
     </li>
-    <li class="navigation__element">
-      <a href="#" class="navigation__link">Candles</a>
-    </li>
-    <li class="navigation__element">
-      <a href="#" class="navigation__link">Mirrors</a>
-    </li>
-    <li class="navigation__element">
-      <a href="#" class="navigation__link">Vases</a>
-    </li>
-    <li class="navigation__element">
-      <a href="#" class="navigation__link">Flowerpot</a>
-    </li>
+
     <li
       class="navigation__element--icon"
       (mouseover)="iconIsHover=true"
@@ -50,21 +49,19 @@
 
 <nav class="navigation-desktop">
   <ul class="navigation-desktop__list">
-    <li class="navigation-desktop__element">
-      <a href="#" class="navigation-desktop__link">Glasses</a>
+
+    <li
+      *ngFor="let bookmark of bookmarks"
+      class="navigation-desktop__element"
+      [routerLinkActive]="['navigation-desktop__element--active']">
+      <a
+        [routerLink]="['/bookmark', bookmark.name]"
+        [routerLinkActive]="['navigation-desktop__link--active']"
+        class="navigation-desktop__link">
+        {{  bookmark.name | titlecase }}
+      </a>
     </li>
-    <li class="navigation-desktop__element">
-      <a href="#" class="navigation-desktop__link">Candles</a>
-    </li>
-    <li class="navigation-desktop__element">
-      <a href="#" class="navigation-desktop__link">Mirrors</a>
-    </li>
-    <li class="navigation-desktop__element">
-      <a href="#" class="navigation-desktop__link">Vases</a>
-    </li>
-    <li class="navigation-desktop__element">
-      <a href="#" class="navigation-desktop__link">Flowerpot</a>
-    </li>
+
     <li class="navigation-desktop__element navigation-desktop__element--icon">
       <a href="#" class="navigation-desktop__link">
         <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_basket</mat-icon>

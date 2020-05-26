@@ -10,11 +10,23 @@ export class NavigationComponent implements OnInit {
   constructor() {
   }
 
+  bookmarks: Array<object> = [
+    {name: 'glasses'},
+    {name: 'candles'},
+    {name: 'mirrors'},
+    {name: 'vases'},
+    {name: 'flowerpot'}
+  ];
+
   menuIsActive: boolean = false;
   iconIsHover: boolean = false;
 
   toggleMenu(): void {
     this.menuIsActive = !this.menuIsActive;
+  }
+
+  hiddenMenu(): void {
+    this.menuIsActive = false;
   }
 
   ngOnInit(): void {

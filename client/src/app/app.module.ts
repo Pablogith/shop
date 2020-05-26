@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HomeModule} from "./modules/home/home.module";
+import {BookmarksModule} from "./modules/bookmarks/bookmarks.module";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -20,7 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
     AppRoutingModule,
     HomeModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    BookmarksModule
   ],
   providers: [],
   bootstrap: [AppComponent]
