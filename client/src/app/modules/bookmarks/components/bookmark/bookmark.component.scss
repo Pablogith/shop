@@ -2,6 +2,14 @@
   width: 100%;
   min-height: calc(100vh - 50px);
 
+  &__items {
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 50px;
+  }
+
   &__empty {
     text-align: center;
     margin-top: 50px;
@@ -10,6 +18,23 @@
       color: rgb(0, 213, 100);
       font-size: 1.3rem;
       font-weight: bold;
+    }
+  }
+}
+
+.section:first-child {
+  margin-top: 30px;
+}
+
+.section:last-child {
+  margin-bottom: 30px;
+}
+
+@media (min-width: 780px) {
+  .section {
+
+    &__items {
+      padding: 50px;
     }
   }
 }

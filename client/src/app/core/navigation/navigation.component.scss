@@ -6,7 +6,7 @@
 
 .navigation {
   width: 100vw;
-  height: 340px;
+  height: 385px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -111,7 +111,17 @@
     &__element {
       margin-right: 15px;
       height: 50px;
-      @include button(100px);
+      @include button(80px);
+
+      &--home {
+        width: 40px;
+
+        & a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
 
       &--active {
 

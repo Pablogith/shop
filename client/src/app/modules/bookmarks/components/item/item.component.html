@@ -1,0 +1,60 @@
+<a
+  [routerLink]="['/bookmark/', bookmark, id]"
+  class="item-link">
+  <div class="item">
+    <img
+      [src]="image"
+      alt="Lamp"
+      class="item__image">
+
+    <h3 class="item__title">{{name}}</h3>
+
+    <p class="item__price">{{price}} | <span>{{currency}}</span></p>
+    <div class="item__buttons">
+
+      <button
+        class="button button-favorite"
+        (mouseover)="favoriteButtonIsHover=true"
+        (mouseleave)="favoriteButtonIsHover=false"
+        *ngIf="isFavourite">
+        Add to
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Favorite icon"
+          class="button-favorite"
+          [ngStyle]="{'color': favoriteButtonIsHover ? '#FF2A51' : 'rgb(50,50,50)' }">
+          favorite
+        </mat-icon>
+      </button>
+
+      <button
+        class="button button-favorite"
+        (mouseover)="favoriteButtonIsHover=true"
+        (mouseleave)="favoriteButtonIsHover=false"
+        *ngIf="!isFavourite">
+        Add to
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Favorite icon"
+          [ngStyle]="{'color': favoriteButtonIsHover ? '#FF2A51' : 'rgb(50,50,50)' }">
+          favorite_border
+        </mat-icon>
+      </button>
+
+      <button
+        class="button button-shopping"
+        (mouseover)="shoppingButtonIsHover=true"
+        (mouseleave)="shoppingButtonIsHover=false">
+        Buy
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Shopping icon"
+          class="shopping-cart"
+          [ngStyle]="{'color': shoppingButtonIsHover ? '#00d564' : 'rgb(50,50,50)' }">
+          shopping_cart
+        </mat-icon>
+      </button>
+
+    </div>
+  </div>
+</a>

@@ -73,12 +73,23 @@
   outline: none;
   transition: all .3s ease;
   animation: button-move 2s alternate infinite none running;
+  text-decoration: none;
+
+  & a {
+    text-decoration: none;
+    color: rgb(0, 213, 100);
+    transition: all .3s ease;
+  }
 
   &:hover {
     cursor: pointer;
     color: white;
     background-color: rgb(0, 213, 100);
     box-shadow: none;
+
+    & a {
+      color: white;
+    }
   }
 }
 

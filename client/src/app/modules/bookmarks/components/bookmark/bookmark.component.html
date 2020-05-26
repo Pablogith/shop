@@ -4,4 +4,10 @@
     class="section__empty">
     No items in {{bookmark}}... <span>  :(</span>
   </h2>
+  <div class="section__items">
+    <app-item
+      *ngFor="let item of items"
+      [itemData]="item">
+    </app-item>
+  </div>
 </section>
