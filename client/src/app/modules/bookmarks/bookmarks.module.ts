@@ -6,6 +6,7 @@ import {BookmarkComponent} from './components/bookmark/bookmark.component';
 import {ItemComponent} from './components/item/item.component';
 import {MatIconModule} from "@angular/material/icon";
 import {ItemDetailsComponent} from './components/item-details/item-details.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import {ItemDetailsComponent} from './components/item-details/item-details.compo
   imports: [
     CommonModule,
     BookmarksRoutingModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class BookmarksModule {

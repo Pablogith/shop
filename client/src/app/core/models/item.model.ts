@@ -5,5 +5,6 @@ export interface IItem {
   image?: string;
   name: string;
   price: number;
+  description: string
   currency: Currencies;
 }

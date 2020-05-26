@@ -22,7 +22,7 @@ import {MatIconModule} from "@angular/material/icon";
     HomeModule,
     BrowserAnimationsModule,
     MatIconModule,
-    BookmarksModule
+    BookmarksModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
