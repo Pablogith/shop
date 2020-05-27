@@ -1,3 +1,5 @@
+@import "../../../assets/scss/base";
+
 @mixin button-burger {
   .hamburger {
     margin: 0;
@@ -90,7 +92,7 @@
     display: block;
     width: 0;
     height: 2px;
-    background: rgb(0, 213, 100);
+    background: $main-color;
     transition: width .3s;
   }
 
@@ -110,6 +112,6 @@
   transition: color .3s ease;
 
   &:hover {
-    color: rgb(0, 213, 100);
+    color: $main-color;
   }
 }

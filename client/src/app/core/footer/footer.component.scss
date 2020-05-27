@@ -1,3 +1,5 @@
+@import "../../../assets/scss/base";
+
 .footer {
   width: 100%;
   min-height: 50px;
@@ -26,7 +28,7 @@
       transition: all .3s ease;
 
       &:hover {
-        color: rgb(0, 213, 100);
+        color: $main-color;
       }
 
       &::after {
@@ -34,7 +36,7 @@
         display: block;
         width: 0;
         height: 2px;
-        background: rgb(0, 213, 100);
+        background: $main-color;
         transition: width .3s;
       }
 

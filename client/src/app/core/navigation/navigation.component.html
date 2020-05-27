@@ -47,8 +47,11 @@
     <li
       class="navigation__element--icon"
       (mouseover)="iconIsHover=true"
-      (mouseleave)="iconIsHover=false">
-      <a href="#" class="navigation-desktop__link navigation-desktop__link--icon">
+      (mouseleave)="iconIsHover=false"
+      (click)="hiddenMenu()">
+      <a
+        [routerLink]="['/basket']"
+        class="navigation-desktop__link navigation-desktop__link--icon">
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
@@ -90,7 +93,9 @@
     </li>
 
     <li class="navigation-desktop__element navigation-desktop__element--icon">
-      <a href="#" class="navigation-desktop__link">
+      <a
+        [routerLink]="['/basket']"
+        class="navigation-desktop__link">
         <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_basket</mat-icon>
       </a>
     </li>

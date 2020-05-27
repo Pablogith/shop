@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {IItem} from "../../../../core/models/item.model";
+import {IItem} from "../../../../shared/models/item.model";
 import {items} from "../bookmark/bookmark.component";
 
 @Component({

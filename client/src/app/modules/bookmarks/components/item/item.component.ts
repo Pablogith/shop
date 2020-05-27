@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IItem} from "../../../../core/models/item.model";
-import {Currencies} from "../../../../core/models/currencies";
+import {IItem} from "../../../../shared/models/item.model";
+import {Currencies} from "../../../../shared/models/currencies";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

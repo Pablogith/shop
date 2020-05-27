@@ -1,0 +1,17 @@
+<section class="content">
+  <div
+    *ngIf="!items || items.length == 0"
+    class="content__empty">
+    Basket is empty... <span> :(</span>
+  </div>
+  <div
+    *ngIf="items.length > 0"
+    class="content__items">
+    <header class="content__header">
+      <h1 class="content__title">Basket details</h1>
+    </header>
+    <section class="content__elements">
+      <app-basket-element *ngFor="let item of items" [itemData]="item"></app-basket-element>
+    </section>
+  </div>
+</section>

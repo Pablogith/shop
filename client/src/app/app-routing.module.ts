@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'bookmark',
     loadChildren: './modules/bookmarks/bookmarks.module#BookmarksModule'
+  },
+  {
+    path: 'basket',
+    loadChildren: './modules/basket/basket.module#BasketModule'
   }
 ];
 

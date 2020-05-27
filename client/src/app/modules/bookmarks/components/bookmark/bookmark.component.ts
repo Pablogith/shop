@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
-import {IItem} from "../../../../core/models/item.model";
-import {Currencies} from "../../../../core/models/currencies";
+import {IItem} from "../../../../shared/models/item.model";
+import {Currencies} from "../../../../shared/models/currencies";
 
 const description: string = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +
   'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown' +
