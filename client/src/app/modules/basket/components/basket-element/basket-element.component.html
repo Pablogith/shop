@@ -2,5 +2,27 @@
   <img [src]="itemData.image" alt="product photo" class="product__image">
   <div class="product__description">
     <p class="product__name">{{itemData.name}}</p>
+    <p class="product__price">{{itemData.price}} {{itemData.currency}}</p>
   </div>
+
+  <form class="product__form form" [formGroup]="counterForm">
+    <div class="form__section">
+      <button class="form__button form__button--remove" type="button" (click)="remove()">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="add">
+          remove
+        </mat-icon>
+      </button>
+      <input type="number" class="form__input" value="1" formControlName="counter">
+      <button class="form__button form__button--add" type="button" (click)="add()">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="add">
+          add
+        </mat-icon>
+      </button>
+    </div>
+  </form>
+
 </div>

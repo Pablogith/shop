@@ -1,16 +1,17 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
+
 import {HomeModule} from "./modules/home/home.module";
 import {BookmarksModule} from "./modules/bookmarks/bookmarks.module";
 import {AppRoutingModule} from './app-routing.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule} from "@angular/material/icon";
 import {BasketModule} from "./modules/basket/basket.module";
-import {ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {NavigationComponent} from './core/navigation/navigation.component';
-import {FooterComponent} from './core/footer/footer.component';
+import {NavigationComponent} from './shared/components/navigation/navigation.component';
+import {FooterComponent} from './shared/components/footer/footer.component';
+import {SharedModule} from "./shared/shared.module";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -23,10 +24,10 @@ import {FooterComponent} from './core/footer/footer.component';
     AppRoutingModule,
     HomeModule,
     BrowserAnimationsModule,
-    MatIconModule,
     BookmarksModule,
     BasketModule,
-    ReactiveFormsModule
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

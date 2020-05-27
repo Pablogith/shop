@@ -1,0 +1,68 @@
+<div class="content">
+
+  <form class="form" [formGroup]="order" (ngSubmit)="onSubmit()">
+    <div class="form__delivery">
+      <fieldset class="form__delivery-fieldset">
+        <label for="payPal" class="form__delivery-label">
+          <input
+            type="radio"
+            id="payPal"
+            name="paymentType"
+            formControlName="paymentType"
+            value="payPal">
+          PayPal
+        </label>
+
+        <label for="cashOnDelivery" class="form__delivery-label">
+          <input
+            type="radio"
+            id="cashOnDelivery"
+            name="paymentType"
+            formControlName="paymentType"
+            value="cashOnDelivery">
+          Cash on delivery
+        </label>
+      </fieldset>
+    </div>
+
+    <div class="form__payment">
+      <label class="form__payment-label">
+        Name
+        <input type="text" formControlName="name">
+      </label>
+
+      <label class="form__payment-label">
+        Surname
+        <input type="text" formControlName="surname">
+      </label>
+
+      <label class="form__payment-label">
+        Email
+        <input type="email" formControlName="email">
+      </label>
+    </div>
+
+    <div class="form__address">
+      <label class="form__address-label">
+        Street
+        <input type="text" formControlName="street">
+      </label>
+
+      <label class="form__address-label">
+        Home number
+        <input type="text" formControlName="homeNumber">
+      </label>
+
+      <label class="form__address-label">
+        Place
+        <input type="text" formControlName="place">
+      </label>
+
+      <button
+        class="form__button"
+        type="submit">
+        Checkout
+      </button>
+    </div>
+  </form>
+</div>

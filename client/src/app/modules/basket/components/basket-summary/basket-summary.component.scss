@@ -1,0 +1,138 @@
+@import "../../../../../assets/scss/base";
+
+.content {
+  margin-right: 30px;
+  margin-left: 30px;
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .25);
+    border-radius: 10px;
+    color: rgb(50, 50, 50);
+    margin-bottom: 80px;
+
+    &__delivery,
+    &__payment,
+    &__address {
+      width: 100%;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      padding-left: 20px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgb(50, 50, 50);
+    }
+
+    &__delivery {
+      justify-content: flex-start;
+      padding-top: 20px;
+
+      &-fieldset {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        height: 80%;
+      }
+
+      &-label {
+        margin-bottom: 30%;
+        margin-top: 30%;
+        display: block;
+        border: 2px solid red;
+        width: 100%;
+        height: 20%;
+      }
+    }
+
+    &__payment {
+
+      &-label {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__address {
+      border-bottom: none;
+
+
+      &-label {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__button {
+      width: 60%;
+      height: 40px;
+      background-color: $main-color;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 3px 10px rgba(0, 213, 100, .3);
+      transform: translateY(70px);
+      outline: none;
+      transition: all .3s ease-in-out;
+      margin: 0 auto;
+
+      &:hover {
+        box-shadow: 0 6px 13px rgba(0, 213, 100, .5);
+        background-color: darken($main-color, 5%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (min-width: 770px) {
+  .content {
+    margin-left: 50px;
+
+    .form {
+      flex-direction: row;
+      max-width: 1000px;
+      width: auto;
+
+      &__delivery,
+      &__payment,
+      &__address {
+        width: calc(1000px / 3);
+        border: none;
+      }
+
+      &__button {
+        margin-right: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+input[type=text],
+input[type=email] {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(40, 40, 40);
+  transition: all .3s ease-in-out;
+
+  &:focus,
+  &:hover {
+    border-bottom: 2px solid $main-color;
+  }
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+}
+
+input[type="radio"]:checked .form__delivery-label {
+  color: red;
+}

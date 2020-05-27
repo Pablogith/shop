@@ -6,7 +6,7 @@ import {IItem} from "../../../../shared/models/item.model";
 import {items} from "../bookmark/bookmark.component";
 
 @Component({
-  selector: 'app-item-details',
+  selector: 'bookmark-item-details',
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.scss']
 })

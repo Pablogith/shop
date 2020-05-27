@@ -4,7 +4,7 @@ import {Currencies} from "../../../../shared/models/currencies";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-item',
+  selector: 'bookmark-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })

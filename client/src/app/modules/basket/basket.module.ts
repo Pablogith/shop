@@ -1,22 +1,21 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {SharedModule} from "../../shared/shared.module";
 
 import {BasketRoutingModule} from './basket-routing.module';
+
 import {BasketComponent} from './components/basket/basket.component';
 import {BasketElementComponent} from "./components/basket-element/basket-element.component";
-import {MatIconModule} from "@angular/material/icon";
-import {ReactiveFormsModule} from "@angular/forms";
+import {BasketSummaryComponent} from './components/basket-summary/basket-summary.component';
 
 @NgModule({
   declarations: [
     BasketComponent,
-    BasketElementComponent
+    BasketElementComponent,
+    BasketSummaryComponent
   ],
   imports: [
-    CommonModule,
     BasketRoutingModule,
-    MatIconModule,
-    ReactiveFormsModule
+    SharedModule
   ]
 })
 export class BasketModule {

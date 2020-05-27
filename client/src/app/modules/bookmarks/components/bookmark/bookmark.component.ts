@@ -45,7 +45,7 @@ export const items: Array<IItem> = [
 ];
 
 @Component({
-  selector: 'app-bookmark',
+  selector: 'bookmark',
   templateUrl: './bookmark.component.html',
   styleUrls: ['./bookmark.component.scss']
 })
