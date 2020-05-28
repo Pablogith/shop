@@ -3,19 +3,23 @@
   <form class="form" [formGroup]="order" (ngSubmit)="onSubmit()">
     <div class="form__delivery">
       <fieldset class="form__delivery-fieldset">
-        <label for="payPal" class="form__delivery-label">
-          <input
-            type="radio"
-            id="payPal"
-            name="paymentType"
-            formControlName="paymentType"
-            value="payPal">
-          PayPal
-        </label>
+        <!--        <label for="payPal" class="form__delivery-label">-->
+        <!--          <input-->
+        <!--            type="radio"-->
+        <!--            id="payPal"-->
+        <!--            name="paymentType"-->
+        <!--            formControlName="paymentType"-->
+        <!--            value="payPal">-->
+        <!--          PayPal-->
+        <!--        </label>-->
 
-        <label for="cashOnDelivery" class="form__delivery-label">
+        <label
+          for="cashOnDelivery"
+          (click)="changeChecked($event)"
+          [class.form__delivery-label--active]="inputChecked"
+          class="form__delivery-label">
           <input
-            type="radio"
+            type="checkbox"
             id="cashOnDelivery"
             name="paymentType"
             formControlName="paymentType"
@@ -28,39 +32,58 @@
     <div class="form__payment">
       <label class="form__payment-label">
         Name
-        <input type="text" formControlName="name">
+        <input
+          type="text"
+          formControlName="name"
+          [class.invalid-input]="name.touched && !name.valid">
       </label>
 
       <label class="form__payment-label">
         Surname
-        <input type="text" formControlName="surname">
+        <input
+          type="text"
+          formControlName="surname"
+          [class.invalid-input]="surname.touched && !surname.valid">
       </label>
 
       <label class="form__payment-label">
         Email
-        <input type="email" formControlName="email">
+        <input
+          type="email"
+          formControlName="email"
+          [class.invalid-input]="email.touched && !email.valid">
       </label>
     </div>
 
     <div class="form__address">
       <label class="form__address-label">
         Street
-        <input type="text" formControlName="street">
+        <input
+          type="text"
+          formControlName="street"
+          [class.invalid-input]="street.touched && !street.valid">
       </label>
 
       <label class="form__address-label">
         Home number
-        <input type="text" formControlName="homeNumber">
+        <input
+          type="text"
+          formControlName="homeNumber"
+          [class.invalid-input]="homeNumber.touched && !homeNumber.valid">
       </label>
 
       <label class="form__address-label">
         Place
-        <input type="text" formControlName="place">
+        <input
+          type="text"
+          formControlName="place"
+          [class.invalid-input]="place.touched && !place.valid">
       </label>
 
       <button
         class="form__button"
-        type="submit">
+        type="submit"
+        [disabled]="order.invalid || !inputChecked">
         Checkout
       </button>
     </div>
