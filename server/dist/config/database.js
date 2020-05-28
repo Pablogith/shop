@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
-
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -117,14 +116,13 @@ var MongoDBStore = require('connect-mongodb-session')(express_session_1.default)
 var Database = /** @class */ (function () {
     function Database() {
     }
-
     Database.setStore = function () {
         var store = new MongoDBStore({
             uri: this.MONGO_URI,
             collection: 'session'
         });
-        store.on('error', function (err) {
-            console.error({err: err});
+        store.on('error', function (error) {
+            console.error({error: error});
         });
     };
     Database.connect = function () {

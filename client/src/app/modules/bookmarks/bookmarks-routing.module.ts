@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {BookmarkComponent} from "./components/bookmark/bookmark.component";
-import {ItemDetailsComponent} from "./components/item-details/item-details.component";
+import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':bookmark/:productId',
-    component: ItemDetailsComponent
+    component: ProductDetailsComponent
   }
 ];
 

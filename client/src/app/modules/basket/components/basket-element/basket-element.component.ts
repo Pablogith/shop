@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
-import {IItem} from "../../../../shared/models/item.model";
+import {IProduct} from "../../../../shared/models/IProduct";
 
 @Component({
   selector: 'basket-element',
@@ -9,7 +9,7 @@ import {IItem} from "../../../../shared/models/item.model";
   styleUrls: ['./basket-element.component.scss']
 })
 export class BasketElementComponent implements OnInit {
-  @Input() itemData: IItem;
+  @Input() productData: IProduct;
 
   counterForm: FormGroup = new FormGroup({
     counter: new FormControl('1', [

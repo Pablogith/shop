@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
-
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -115,14 +114,24 @@ Object.defineProperty(exports, "__esModule", {value: true});
 var express_1 = __importDefault(require("express"));
 // @ts-ignore
 var body_parser_1 = __importDefault(require("body-parser"));
+// @ts-ignore
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
+// @ts-ignore
+var cors_1 = __importDefault(require("cors"));
 var database_1 = __importDefault(require("./config/database"));
 var ProductController_1 = require("./api/ProductController");
 var app = express_1.default();
 var port = 3000;
+var allowedOrigin = ['http://localhost:4200'];
+var methods = ['GET', 'POST', 'PUT', 'DELETE'];
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({extended: false}));
 app.use(cookie_parser_1.default());
+app.disable('x-powered-by');
+app.use(cors_1.default({
+    origin: allowedOrigin,
+    methods: methods
+}));
 app.use(ProductController_1.router);
 (function () {
     return __awaiter(this, void 0, void 0, function () {

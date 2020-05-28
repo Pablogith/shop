@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IItem} from "../../../../shared/models/item.model";
+import {IProduct} from "../../../../shared/models/IProduct";
 import {Currencies} from "../../../../shared/models/currencies";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'bookmark-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  selector: 'bookmark-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @Input() itemData: IItem;
+  @Input() productData: IProduct;
 
   bookmark: string;
 
@@ -28,23 +28,23 @@ export class ItemComponent implements OnInit {
   }
 
   get price(): number {
-    return this.itemData.price;
+    return this.productData.price;
   }
 
   get name(): string {
-    return this.itemData.name;
+    return this.productData.name;
   }
 
   get currency(): Currencies {
-    return this.itemData.currency;
+    return this.productData.currency;
   }
 
   get image(): string {
-    return this.itemData.image;
+    return this.productData.image;
   }
 
-  get id(): number {
-    return this.itemData.id;
+  get id(): string {
+    return this.productData._id;
   }
 
 }

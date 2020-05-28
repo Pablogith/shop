@@ -2,15 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {IItem} from "../../../../shared/models/item.model";
-import {items} from "../bookmark/bookmark.component";
+import {IProduct} from "../../../../shared/models/IProduct";
+import {ApiService} from "../../../../core/http/api/api.service";
 
 @Component({
   selector: 'bookmark-item-details',
-  templateUrl: './item-details.component.html',
-  styleUrls: ['./item-details.component.scss']
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.scss']
 })
-export class ItemDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
   counterForm: FormGroup = new FormGroup({
     counter: new FormControl('1', [
@@ -20,11 +20,11 @@ export class ItemDetailsComponent implements OnInit {
     ])
   });
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {
   }
 
-  item: IItem;
-  productId: number;
+  product: IProduct;
+  productId: string;
   _counter: number = 1;
 
   ngOnInit(): void {
@@ -32,8 +32,9 @@ export class ItemDetailsComponent implements OnInit {
       this.productId = params.productId;
     });
 
-    this.productId = +this.productId;
-    this.item = items.find((item: IItem) => item.id === this.productId);
+    this.apiService.getProducts(this.productId).subscribe((product: IProduct) => {
+      this.product = product;
+    });
 
     this.counter.disable();
   }
@@ -67,22 +68,22 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   get name(): string {
-    return this.item.name;
+    return this.product.name;
   }
 
   get price(): number {
-    return this.item.price;
+    return this.product.price;
   }
 
   get currency(): string {
-    return this.item.currency;
+    return this.product.currency;
   }
 
-  get image(): string {
-    return this.item.image;
+  get imgUrl(): string {
+    return this.product.image;
   }
 
   get description(): string {
-    return this.item.description;
+    return this.product.description;
   }
 }

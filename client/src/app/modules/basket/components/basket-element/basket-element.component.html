@@ -1,8 +1,8 @@
 <div class="product">
-  <img [src]="itemData.image" alt="product photo" class="product__image">
+  <img [src]="productData.image" alt="product photo" class="product__image">
   <div class="product__description">
-    <p class="product__name">{{itemData.name}}</p>
-    <p class="product__price">{{itemData.price}} {{itemData.currency}}</p>
+    <p class="product__name">{{productData.name}}</p>
+    <p class="product__price">{{productData.price}} {{productData.currency}}</p>
   </div>
 
   <form class="product__form form" [formGroup]="counterForm">

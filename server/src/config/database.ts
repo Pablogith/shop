@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import session from 'express-session';
 
-const MongoDBStore = require('connect-mongodb-session')(session);
+const MongoDBStore: any = require('connect-mongodb-session')(session);
 
 export default class Database {
     private static MONGO_URI: string = 'mongodb+srv://admin:zaq12wsx@shop-hh4ox.gcp.mongodb.net/test?retryWrites=true&w=majority';
@@ -12,8 +12,8 @@ export default class Database {
             collection: 'session'
         });
 
-        store.on('error', (err: any) => {
-            console.error({err});
+        store.on('error', (error: any) => {
+            console.error({error});
         });
     }
 

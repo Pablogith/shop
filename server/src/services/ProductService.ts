@@ -9,7 +9,7 @@ export default class ProductService {
         }
     }
 
-    static async getProduct(id: any): Promise<any> {
+    static async getProduct(id: string): Promise<any> {
         try {
             return await ProductModel.findById(id);
         } catch (error) {
@@ -26,7 +26,7 @@ export default class ProductService {
         }
     }
 
-    static async deleteProduct(id: any): Promise<any> {
+    static async deleteProduct(id: string): Promise<any> {
         try {
             return await ProductModel.findByIdAndDelete(id);
         } catch (error) {

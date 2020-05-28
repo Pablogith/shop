@@ -1,10 +1,13 @@
 import {Currencies} from "./currencies";
 
-export interface IItem {
-  id: number;
-  image?: string;
+export interface IProduct {
+  _id: string;
+  _v: number;
+  image: string;
   name: string;
   price: number;
   description: string
   currency: Currencies;
+  createdAt: string;
+  category: string;
 }

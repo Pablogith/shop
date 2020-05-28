@@ -1,17 +1,17 @@
 <section class="content">
   <div
-    *ngIf="!items || items.length == 0"
+    *ngIf="!products || products.length == 0"
     class="content__empty">
     Basket is empty... <span> :(</span>
   </div>
   <div
-    *ngIf="items.length > 0"
+    *ngIf="products.length > 0"
     class="content__items">
     <header class="content__header">
       <h1 class="content__title">Basket details</h1>
     </header>
     <section class="content__elements">
-      <basket-element *ngFor="let item of items" [itemData]="item"></basket-element>
+      <basket-element *ngFor="let product of products" [productData]="product"></basket-element>
     </section>
     <section class="content__summary">
       <basket-summary></basket-summary>
