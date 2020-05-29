@@ -11,7 +11,7 @@ import Database from "./config/database";
 import {router} from "./api/ProductController";
 
 const app: express.Application = express();
-const port: number = 3000;
+const port: any = process.env.PORT || 3000;
 
 const allowedOrigin: Array<string> = ['http://localhost:4200'];
 const methods: Array<string> = ['GET', 'POST', 'PUT', 'DELETE'];
