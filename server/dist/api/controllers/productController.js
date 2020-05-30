@@ -55,14 +55,20 @@ var productController;
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                    message: "Not Found"
-                                })];
+                                success: false,
+                                status: 404,
+                                message: "Not Found"
+                            })];
                         }
                         return [2 /*return*/, res.status(200).send(response)];
                     case 2:
                         error_1 = _a.sent();
-                        return [2 /*return*/, res.status(500).send({ error: error_1 })];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            error: error_1
+                        })];
+                    case 3:
+                        return [2 /*return*/];
                 }
             });
         });
@@ -81,14 +87,20 @@ var productController;
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                    message: "Not Found"
-                                })];
+                                success: false,
+                                status: 404,
+                                message: "Not Found"
+                            })];
                         }
                         return [2 /*return*/, res.status(200).send(response)];
                     case 2:
                         error_2 = _a.sent();
-                        return [2 /*return*/, res.status(500).send({ error: error_2 })];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            error: error_2
+                        })];
+                    case 3:
+                        return [2 /*return*/];
                 }
             });
         });
@@ -116,17 +128,26 @@ var productController;
                         response = _b.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                    message: 'Product not found'
-                                })];
+                                success: false,
+                                status: 404,
+                                message: 'Product not found'
+                            })];
                         }
                         return [2 /*return*/, res.status(200).send(response)];
-                    case 2: return [2 /*return*/, res.status(400).send({
+                    case 2:
+                        return [2 /*return*/, res.status(400).send({
+                            success: false,
+                            status: 400,
                             message: 'Invalid request'
                         })];
                     case 3:
                         error_3 = _b.sent();
-                        return [2 /*return*/, res.status(500).send({ error: error_3 })];
-                    case 4: return [2 /*return*/];
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            error: error_3
+                        })];
+                    case 4:
+                        return [2 /*return*/];
                 }
             });
         });
@@ -145,14 +166,20 @@ var productController;
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                    message: "Not Found"
-                                })];
+                                success: false,
+                                status: 404,
+                                message: "Not Found"
+                            })];
                         }
                         return [2 /*return*/, res.status(200).send(response)];
                     case 2:
                         error_4 = _a.sent();
-                        return [2 /*return*/, res.status(500).send({ error: error_4 })];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            error: error_4
+                        })];
+                    case 3:
+                        return [2 /*return*/];
                 }
             });
         });

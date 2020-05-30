@@ -39,10 +39,8 @@ var productValidations;
             .withMessage('Description must be at least 3 characters long and less than 200 characters'),
         express_validator_1.check('image')
             .not().isEmpty()
-            .withMessage('Image is required'),
-        express_validator_1.sanitizeBody('*').escape()
+            .withMessage('Image is required')
     ];
-
     function checkAddValidation(req, res, next) {
         var errors = express_validator_1.validationResult(req);
         if (!errors.isEmpty()) {
@@ -54,6 +52,5 @@ var productValidations;
         }
         next();
     }
-
     productValidations.checkAddValidation = checkAddValidation;
 })(productValidations = exports.productValidations || (exports.productValidations = {}));

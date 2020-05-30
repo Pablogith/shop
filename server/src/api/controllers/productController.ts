@@ -9,13 +9,18 @@ export namespace productController {
 
             if (!response) {
                 return res.status(404).send({
+                    success: false,
+                    status: 404,
                     message: "Not Found"
                 });
             }
 
             return res.status(200).send(response);
         } catch (error) {
-            return res.status(500).send({error})
+            return res.status(500).send({
+                success: false,
+                error
+            })
         }
     }
 
@@ -26,13 +31,18 @@ export namespace productController {
 
             if (!response) {
                 return res.status(404).send({
+                    success: false,
+                    status: 404,
                     message: "Not Found"
                 });
             }
 
             return res.status(200).send(response);
         } catch (error) {
-            return res.status(500).send({error});
+            return res.status(500).send({
+                success: false,
+                error
+            });
         }
     }
 
@@ -54,6 +64,8 @@ export namespace productController {
 
                 if (!response) {
                     return res.status(404).send({
+                        success: false,
+                        status: 404,
                         message: 'Product not found'
                     })
                 }
@@ -62,10 +74,15 @@ export namespace productController {
             }
 
             return res.status(400).send({
+                success: false,
+                status: 400,
                 message: 'Invalid request'
             });
         } catch (error) {
-            return res.status(500).send({error});
+            return res.status(500).send({
+                success: false,
+                error
+            });
 
         }
     }
@@ -78,13 +95,18 @@ export namespace productController {
 
             if (!response) {
                 return res.status(404).send({
+                    success: false,
+                    status: 404,
                     message: "Not Found"
                 });
             }
 
             return res.status(200).send(response);
         } catch (error) {
-            return res.status(500).send({error});
+            return res.status(500).send({
+                success: false,
+                error
+            });
         }
     }
 }

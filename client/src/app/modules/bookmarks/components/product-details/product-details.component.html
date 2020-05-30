@@ -26,7 +26,12 @@
           </mat-icon>
         </button>
       </div>
-        <a class="form__button-buy form__link" routerLink="/basket">Buy</a>
+      <a
+        class="form__button-buy form__link"
+        (click)="addToBasket()"
+        routerLink="/basket">
+        Buy
+      </a>
     </form>
   </div>
 </div>

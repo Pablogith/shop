@@ -3,7 +3,9 @@ import {ActivatedRoute} from "@angular/router";
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {IProduct} from "../../../../shared/models/IProduct";
+import {IProductInformation} from "../../../../shared/models/IBasket";
 import {ApiService} from "../../../../core/http/api/api.service";
+import {BasketService} from "../../../../core/services/basket/basket.service";
 
 @Component({
   selector: 'bookmark-item-details',
@@ -20,7 +22,10 @@ export class ProductDetailsComponent implements OnInit {
     ])
   });
 
-  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {
+  constructor(
+    private basketService: BasketService,
+    private activatedRoute: ActivatedRoute,
+    private apiService: ApiService) {
   }
 
   product: IProduct;
@@ -37,6 +42,15 @@ export class ProductDetailsComponent implements OnInit {
     });
 
     this.counter.disable();
+  }
+
+  addToBasket(): void {
+    const product: IProductInformation = {
+      _id: this.product._id,
+      amount: this._counter
+    };
+
+    this.basketService.addToBasket(product);
   }
 
   add(): void {

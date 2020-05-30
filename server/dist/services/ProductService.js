@@ -21,26 +21,51 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
                 case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                case 7:
+                    op = _.ops.pop();
+                    _.trys.pop();
+                    continue;
                 default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                        _ = 0;
+                        continue;
+                    }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
+                        _.label = op[1];
+                        break;
+                    }
+                    if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                    }
+                    if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                    }
                     if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
+                    _.trys.pop();
+                    continue;
             }
             op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+        } catch (e) {
+            op = [6, e];
+            y = 0;
+        } finally {
+            f = t = 0;
+        }
+        if (op[0] & 5) throw op[1];
+        return {value: op[0] ? op[1] : void 0, done: true};
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 exports.productValidation = void 0;
 var Product_1 = require("../models/Product");
 var ProductService = /** @class */ (function () {
     function ProductService() {
     }
+
     ProductService.getAllProducts = function () {
         return __awaiter(this, void 0, void 0, function () {
             var error_1;
@@ -101,11 +126,13 @@ var ProductService = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, Product_1.ProductModel.findByIdAndDelete(id)];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 1:
+                        return [2 /*return*/, _a.sent()];
                     case 2:
                         error_4 = _a.sent();
                         return [2 /*return*/, error_4];
-                    case 3: return [2 /*return*/];
+                    case 3:
+                        return [2 /*return*/];
                 }
             });
         });
@@ -113,6 +140,8 @@ var ProductService = /** @class */ (function () {
     return ProductService;
 }());
 exports.default = ProductService;
+
 function productValidation(req, res) {
 }
+
 exports.productValidation = productValidation;

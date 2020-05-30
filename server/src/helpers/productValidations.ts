@@ -38,8 +38,7 @@ export namespace productValidations {
             .withMessage('Description must be at least 3 characters long and less than 200 characters'),
         check('image')
             .not().isEmpty()
-            .withMessage('Image is required'),
-        sanitizeBody('*').escape()
+            .withMessage('Image is required')
     ];
 
     export function checkAddValidation(req: express.Request, res: express.Response, next: express.NextFunction) {

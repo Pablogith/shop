@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {IProduct} from "../../../../shared/models/IProduct";
+import {IProductInformation} from "../../../../shared/models/IBasket";
+import {ApiService} from "../../../../core/http/api/api.service";
+import {BasketService} from "../../../../core/services/basket/basket.service";
 
 @Component({
   selector: 'basket-element',
@@ -9,7 +12,9 @@ import {IProduct} from "../../../../shared/models/IProduct";
   styleUrls: ['./basket-element.component.scss']
 })
 export class BasketElementComponent implements OnInit {
-  @Input() productData: IProduct;
+  @Input() productData: IProductInformation;
+
+  product: IProduct;
 
   counterForm: FormGroup = new FormGroup({
     counter: new FormControl('1', [
@@ -19,33 +24,26 @@ export class BasketElementComponent implements OnInit {
     ])
   });
 
-  _counter: number = 1;
 
-  constructor() {
+  constructor(private apiService: ApiService, private basketService: BasketService) {
   }
 
   ngOnInit(): void {
     this.counter.disable();
+
+    this.apiService.getProducts(this.productData._id).subscribe((product: IProduct) => {
+      this.product = product;
+    });
+
+    this.setCounter(this.productData.amount);
   }
 
   add(): void {
-    this._counter++;
-    if (this._counter >= 5) {
-      this._counter = 5;
-      this.setCounter(this._counter);
-    } else {
-      this.setCounter(this._counter);
-    }
+    this.basketService.increaseTheAmount(this.product._id);
   }
 
   remove(): void {
-    this._counter--;
-    if (this._counter <= 0) {
-      this._counter = 1;
-      this.setCounter(this._counter)
-    } else {
-      this.setCounter(this._counter);
-    }
+    this.basketService.decreaseTheAmount(this.product._id);
   }
 
   get counter(): AbstractControl {
