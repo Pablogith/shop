@@ -20,6 +20,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductModel = void 0;
+// @ts-ignore
 var mongoose_1 = __importStar(require("mongoose"));
 var ProductSchema = new mongoose_1.Schema({
     name: {

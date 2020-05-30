@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.productValidation = void 0;
 var Product_1 = require("../models/Product");
 var ProductService = /** @class */ (function () {
     function ProductService() {
@@ -112,3 +113,6 @@ var ProductService = /** @class */ (function () {
     return ProductService;
 }());
 exports.default = ProductService;
+function productValidation(req, res) {
+}
+exports.productValidation = productValidation;

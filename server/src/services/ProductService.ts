@@ -1,4 +1,6 @@
-import {IProduct, ProductModel} from "../models/Product";
+import express from 'express';
+import {ProductModel} from "../models/Product";
+import IProduct from "../models/IProduct";
 
 export default class ProductService {
     static async getAllProducts(): Promise<any> {
@@ -33,4 +35,8 @@ export default class ProductService {
             return error;
         }
     }
+}
+
+export function productValidation(req: express.Request, res: express.Response): void {
+
 }

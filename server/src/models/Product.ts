@@ -1,13 +1,5 @@
+// @ts-ignore
 import mongoose, {Schema} from 'mongoose';
-
-interface IProduct {
-    name: string;
-    price: number;
-    category: string;
-    description: string;
-    image: string;
-    currency: string;
-}
 
 const ProductSchema = new Schema({
     name: {
@@ -43,6 +35,6 @@ const ProductSchema = new Schema({
     }
 });
 
-const ProductModel = mongoose.model('Product', ProductSchema);
+const ProductModel = mongoose.model<mongoose.Document>('Product', ProductSchema);
 
-export {ProductModel, IProduct};
+export {ProductModel};

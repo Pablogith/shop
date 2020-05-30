@@ -1,4 +1,6 @@
+// @ts-ignore
 import mongoose from 'mongoose';
+// @ts-ignore
 import session from 'express-session';
 
 const MongoDBStore: any = require('connect-mongodb-session')(session);

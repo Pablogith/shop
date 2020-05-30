@@ -1,6 +1,4 @@
-// @ts-ignore
 import express from 'express';
-// @ts-ignore
 import bodyParser from 'body-parser';
 // @ts-ignore
 import cookieParser from 'cookie-parser';
@@ -8,34 +6,57 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 import Database from "./config/database";
-import {router} from "./api/ProductController";
+import {Methods} from "./models/methods";
+import {ErrorHandler, handleError} from "./services/ErrorHandling";
 
-const app: express.Application = express();
-const port: any = process.env.PORT || 3000;
+export default class App {
+    public app: express.Application;
 
-const allowedOrigin: Array<string> = ['http://localhost:4200'];
-const methods: Array<string> = ['GET', 'POST', 'PUT', 'DELETE'];
+    constructor(public controllers: Array<any>, public port: number) {
+        this.app = express();
+        this.port = port;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-app.disable('x-powered-by');
-app.use(cors({
-    origin: allowedOrigin,
-    methods: methods
-}));
-
-app.use(router);
-
-(async function () {
-    try {
-        await Database.init();
-        app.listen(port, () => {
-            // tslint:disable-next-line:no-console
-            console.log('DATABASE CONNECTED');
-            console.log(`listening on http://localhost:${port}/`);
-        });
-    } catch (error) {
-        console.log(error);
+        this.setCors();
+        this.initializeMiddleware();
+        this.initializeControllers();
     }
-})();
+
+    private initializeMiddleware(): void {
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({extended: false}));
+        this.app.use(cookieParser());
+    }
+
+    private initializeControllers(): void {
+        this.controllers.forEach((controller) => {
+            this.app.use(controller);
+        });
+        this.app.use((err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) => {
+            handleError(err, res);
+        });
+    }
+
+    private setCors(): void {
+        const allowedOrigin: Array<string> = ['http://localhost:4200'];
+        const methods: Array<Methods> = ['GET', 'POST', 'PUT', 'DELETE'];
+
+        this.app.disable('x-powered-by');
+        this.app.use(cors({
+            origin: allowedOrigin,
+            methods: methods
+        }));
+    }
+
+    public async listen(): Promise<void> {
+        try {
+            await Database.init();
+            this.app.listen(this.port, () => {
+                // tslint:disable-next-line:no-console
+                console.log('DATABASE CONNECTED');
+                console.log(`listening on http://localhost:${this.port}/`);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}

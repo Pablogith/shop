@@ -36,54 +36,78 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+    return (mod && mod.__esModule) ? mod : {"default": mod};
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-// @ts-ignore
+Object.defineProperty(exports, "__esModule", {value: true});
 var express_1 = __importDefault(require("express"));
-// @ts-ignore
 var body_parser_1 = __importDefault(require("body-parser"));
 // @ts-ignore
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
 // @ts-ignore
 var cors_1 = __importDefault(require("cors"));
 var database_1 = __importDefault(require("./config/database"));
-var ProductController_1 = require("./api/ProductController");
-var app = express_1.default();
-var port = process.env.PORT || 3000;
-var allowedOrigin = ['http://localhost:4200'];
-var methods = ['GET', 'POST', 'PUT', 'DELETE'];
-app.use(body_parser_1.default.json());
-app.use(body_parser_1.default.urlencoded({ extended: false }));
-app.use(cookie_parser_1.default());
-app.disable('x-powered-by');
-app.use(cors_1.default({
-    origin: allowedOrigin,
-    methods: methods
-}));
-app.use(ProductController_1.router);
-(function () {
-    return __awaiter(this, void 0, void 0, function () {
-        var error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, database_1.default.init()];
-                case 1:
-                    _a.sent();
-                    app.listen(port, function () {
-                        // tslint:disable-next-line:no-console
-                        console.log('DATABASE CONNECTED');
-                        console.log("listening on http://localhost:" + port + "/");
-                    });
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
+var ErrorHandling_1 = require("./services/ErrorHandling");
+var App = /** @class */ (function () {
+    function App(controllers, port) {
+        this.controllers = controllers;
+        this.port = port;
+        this.app = express_1.default();
+        this.port = port;
+        this.setCors();
+        this.initializeMiddleware();
+        this.initializeControllers();
+    }
+
+    App.prototype.initializeMiddleware = function () {
+        this.app.use(body_parser_1.default.json());
+        this.app.use(body_parser_1.default.urlencoded({extended: false}));
+        this.app.use(cookie_parser_1.default());
+    };
+    App.prototype.initializeControllers = function () {
+        var _this = this;
+        this.controllers.forEach(function (controller) {
+            _this.app.use(controller);
         });
-    });
-})();
+        this.app.use(function (err, req, res, next) {
+            ErrorHandling_1.handleError(err, res);
+        });
+    };
+    App.prototype.setCors = function () {
+        var allowedOrigin = ['http://localhost:4200'];
+        var methods = ['GET', 'POST', 'PUT', 'DELETE'];
+        this.app.disable('x-powered-by');
+        this.app.use(cors_1.default({
+            origin: allowedOrigin,
+            methods: methods
+        }));
+    };
+    App.prototype.listen = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var error_1;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, database_1.default.init()];
+                    case 1:
+                        _a.sent();
+                        this.app.listen(this.port, function () {
+                            // tslint:disable-next-line:no-console
+                            console.log('DATABASE CONNECTED');
+                            console.log("listening on http://localhost:" + _this.port + "/");
+                        });
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.log(error_1);
+                        return [3 /*break*/, 3];
+                    case 3:
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return App;
+}());
+exports.default = App;

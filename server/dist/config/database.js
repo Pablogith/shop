@@ -39,7 +39,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// @ts-ignore
 var mongoose_1 = __importDefault(require("mongoose"));
+// @ts-ignore
 var express_session_1 = __importDefault(require("express-session"));
 var MongoDBStore = require('connect-mongodb-session')(express_session_1.default);
 var Database = /** @class */ (function () {
