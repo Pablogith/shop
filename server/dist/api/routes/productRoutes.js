@@ -10,7 +10,8 @@ var ProductController_1 = __importDefault(require("../controllers/ProductControl
 var productValidations_1 = require("../../helpers/productValidations");
 var router = express_1.default.Router();
 exports.router = router;
+router.get('/products/:category', ProductController_1.default.getAllProductsFromCategory);
+router.get('/products/:category/:id', ProductController_1.default.getProduct);
 router.get('/products', ProductController_1.default.getAllProducts);
-router.get('/products/:id', ProductController_1.default.getProduct);
 router.post('/products', productValidations_1.productValidations.addValidators, productValidations_1.productValidations.checkAddValidation, ProductController_1.default.createProduct);
 router.delete('/products/:id', ProductController_1.default.deleteProduct);

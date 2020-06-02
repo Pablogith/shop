@@ -5,9 +5,11 @@ import {productValidations} from "../../helpers/productValidations";
 
 const router: any = express.Router();
 
-router.get('/products', ProductController.getAllProducts);
+router.get('/products/:category', ProductController.getAllProductsFromCategory);
 
-router.get('/products/:id', ProductController.getProduct);
+router.get('/products/:category/:id', ProductController.getProduct);
+
+router.get('/products', ProductController.getAllProducts);
 
 router.post('/products',
     productValidations.addValidators,

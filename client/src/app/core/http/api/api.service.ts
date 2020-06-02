@@ -24,6 +24,13 @@ export class ApiService {
     return throwError('Something bad happened; please try again later.');
   };
 
+  getAllProductsFromCategory(category: string) {
+    return this.http.get(`${this.url}/products/${category}`)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
 
   getAllProducts(): Observable<Array<IProduct>> {
     return this.http.get<Array<IProduct>>(`${this.url}/products`)
@@ -33,8 +40,8 @@ export class ApiService {
       );
   }
 
-  getProducts(id: string): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.url}/products/${id}`)
+  getProduct(id: string, bookmark: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.url}/products/${bookmark}/${id}`)
       .pipe(
         retry(6),
         catchError(this.handleError)

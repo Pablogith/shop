@@ -44,14 +44,15 @@ var ProductController = /** @class */ (function () {
     function ProductController() {
     }
 
-    ProductController.getAllProducts = function (req, res) {
+    ProductController.getAllProductsFromCategory = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, error_1;
+            var category, response, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, ProductService_1.default.getAllProducts()];
+                        category = req.params.category;
+                        return [4 /*yield*/, ProductService_1.default.getAllProductsFromCategory(category)];
                     case 1:
                         response = _a.sent();
                         if (!response) {
@@ -77,15 +78,14 @@ var ProductController = /** @class */ (function () {
             });
         });
     };
-    ProductController.getProduct = function (req, res) {
+    ProductController.getAllProducts = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var id, response, error_2;
+            var response, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        id = req.params.id;
-                        return [4 /*yield*/, ProductService_1.default.getProduct(id)];
+                        return [4 /*yield*/, ProductService_1.default.getAllProducts()];
                     case 1:
                         response = _a.sent();
                         if (!response) {
@@ -111,9 +111,43 @@ var ProductController = /** @class */ (function () {
             });
         });
     };
+    ProductController.getProduct = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var id, response, error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        id = req.params.id;
+                        return [4 /*yield*/, ProductService_1.default.getProduct(id)];
+                    case 1:
+                        response = _a.sent();
+                        if (!response) {
+                            return [2 /*return*/, res.status(404).send({
+                                success: false,
+                                status: 404,
+                                message: "Not Found"
+                            })];
+                        }
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
+                    case 2:
+                        error_3 = _a.sent();
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            error: error_3
+                        })];
+                    case 3:
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     ProductController.createProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, name_1, price, category, description, image, currency, isGood, response, error_3;
+            var _a, name_1, price, category, description, image, currency, isGood, response, error_4;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -151,10 +185,10 @@ var ProductController = /** @class */ (function () {
                             message: 'Invalid request'
                         })];
                     case 3:
-                        error_3 = _b.sent();
+                        error_4 = _b.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_3
+                            error: error_4
                         })];
                     case 4:
                         return [2 /*return*/];
@@ -164,7 +198,7 @@ var ProductController = /** @class */ (function () {
     };
     ProductController.deleteProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var id, response, error_4;
+            var id, response, error_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -185,10 +219,10 @@ var ProductController = /** @class */ (function () {
                             data: response
                         })];
                     case 2:
-                        error_4 = _a.sent();
+                        error_5 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_4
+                            error: error_5
                         })];
                     case 3:
                         return [2 /*return*/];

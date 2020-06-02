@@ -3,6 +3,14 @@ import {ProductModel} from "../models/Product";
 import IProduct from "../models/IProduct";
 
 export default class ProductService {
+    static async getAllProductsFromCategory(category: string): Promise<any> {
+        try {
+            return await ProductModel.find({category});
+        } catch (error) {
+            return error;
+        }
+    }
+
     static async getAllProducts(): Promise<any> {
         try {
             return await ProductModel.find();

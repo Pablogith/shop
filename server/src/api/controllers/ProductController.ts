@@ -3,7 +3,32 @@ import IProduct from "../../models/IProduct";
 import ProductService from "../../services/ProductService";
 
 export default class ProductController {
-    static async getAllProducts(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async getAllProductsFromCategory(req: express.Request, res: express.Response): Promise<express.Response> {
+        try {
+            const {category} = req.params;
+            const response: IProduct[] = await ProductService.getAllProductsFromCategory(category);
+
+            if (!response) {
+                return res.status(404).send({
+                    success: false,
+                    status: 404,
+                    message: "Not Found"
+                });
+            }
+
+            return res.status(200).send({
+                success: true,
+                data: response
+            });
+        } catch (error) {
+            return res.status(500).send({
+                success: false,
+                error
+            });
+        }
+    }
+
+    static async getAllProducts(req: express.Request, res: express.Response): Promise<express.Response> {
         try {
             const response: IProduct[] = await ProductService.getAllProducts();
 
@@ -23,11 +48,11 @@ export default class ProductController {
             return res.status(500).send({
                 success: false,
                 error
-            })
+            });
         }
     }
 
-    static async getProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async getProduct(req: express.Request, res: express.Response): Promise<express.Response> {
         try {
             const {id} = req.params;
             const response: IProduct = await ProductService.getProduct(id);
@@ -52,7 +77,7 @@ export default class ProductController {
         }
     }
 
-    static async createProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async createProduct(req: express.Request, res: express.Response): Promise<express.Response> {
         try {
             const {name, price, category, description, image, currency} = req.body;
 
@@ -96,7 +121,7 @@ export default class ProductController {
         }
     }
 
-    static async deleteProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async deleteProduct(req: express.Request, res: express.Response): Promise<express.Response> {
         try {
             const {id} = req.params;
 

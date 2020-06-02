@@ -28,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
     private apiService: ApiService) {
   }
 
+  bookmark: string;
   product: IProduct;
   productId: string;
   _counter: number = 1;
@@ -35,9 +36,10 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.productId = params.productId;
+      this.bookmark = params.bookmark;
     });
 
-    this.apiService.getProducts(this.productId).subscribe(
+    this.apiService.getProduct(this.productId, this.bookmark).subscribe(
       (response: Object) => {
         // @ts-ignore
         this.product = response.data;
