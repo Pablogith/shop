@@ -39,11 +39,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productController = void 0;
 var ProductService_1 = __importDefault(require("../../services/ProductService"));
-var productController;
-(function (productController) {
-    function getAllProducts(req, res) {
+var ProductController = /** @class */ (function () {
+    function ProductController() {
+    }
+
+    ProductController.getAllProducts = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var response, error_1;
             return __generator(this, function (_a) {
@@ -60,7 +61,10 @@ var productController;
                                 message: "Not Found"
                             })];
                         }
-                        return [2 /*return*/, res.status(200).send(response)];
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
                     case 2:
                         error_1 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
@@ -72,9 +76,8 @@ var productController;
                 }
             });
         });
-    }
-    productController.getAllProducts = getAllProducts;
-    function getProduct(req, res) {
+    };
+    ProductController.getProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var id, response, error_2;
             return __generator(this, function (_a) {
@@ -92,7 +95,10 @@ var productController;
                                 message: "Not Found"
                             })];
                         }
-                        return [2 /*return*/, res.status(200).send(response)];
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
                     case 2:
                         error_2 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
@@ -104,9 +110,8 @@ var productController;
                 }
             });
         });
-    }
-    productController.getProduct = getProduct;
-    function createProduct(req, res) {
+    };
+    ProductController.createProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, name_1, price, category, description, image, currency, isGood, response, error_3;
             return __generator(this, function (_b) {
@@ -114,16 +119,18 @@ var productController;
                     case 0:
                         _b.trys.push([0, 3, , 4]);
                         _a = req.body, name_1 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency;
-                        isGood = [name_1, price, category, description, image].every(function (value) { return !!value; });
+                        isGood = [name_1, price, category, description, image].every(function (value) {
+                            return !!value;
+                        });
                         if (!isGood) return [3 /*break*/, 2];
                         return [4 /*yield*/, ProductService_1.default.addProduct({
-                                name: name_1,
-                                price: price,
-                                category: category,
-                                description: description,
-                                image: image,
-                                currency: currency
-                            })];
+                            name: name_1,
+                            price: price,
+                            category: category,
+                            description: description,
+                            image: image,
+                            currency: currency
+                        })];
                     case 1:
                         response = _b.sent();
                         if (!response) {
@@ -133,7 +140,10 @@ var productController;
                                 message: 'Product not found'
                             })];
                         }
-                        return [2 /*return*/, res.status(200).send(response)];
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
                     case 2:
                         return [2 /*return*/, res.status(400).send({
                             success: false,
@@ -151,9 +161,8 @@ var productController;
                 }
             });
         });
-    }
-    productController.createProduct = createProduct;
-    function deleteProduct(req, res) {
+    };
+    ProductController.deleteProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var id, response, error_4;
             return __generator(this, function (_a) {
@@ -171,7 +180,10 @@ var productController;
                                 message: "Not Found"
                             })];
                         }
-                        return [2 /*return*/, res.status(200).send(response)];
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
                     case 2:
                         error_4 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
@@ -183,6 +195,7 @@ var productController;
                 }
             });
         });
-    }
-    productController.deleteProduct = deleteProduct;
-})(productController = exports.productController || (exports.productController = {}));
+    };
+    return ProductController;
+}());
+exports.default = ProductController;

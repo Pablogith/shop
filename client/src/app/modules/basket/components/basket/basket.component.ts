@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {IProduct} from "../../../../shared/models/IProduct";
 import {Basket} from "../../../../shared/models/IBasket";
 import {BasketService} from "../../../../core/services/basket/basket.service";
 

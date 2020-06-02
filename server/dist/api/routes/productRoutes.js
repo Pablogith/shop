@@ -5,11 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", {value: true});
 exports.router = void 0;
 var express_1 = __importDefault(require("express"));
-var productController_1 = require("../controllers/productController");
+// @ts-ignore
+var ProductController_1 = __importDefault(require("../controllers/ProductController"));
 var productValidations_1 = require("../../helpers/productValidations");
 var router = express_1.default.Router();
 exports.router = router;
-router.get('/products', productController_1.productController.getAllProducts);
-router.get('/products/:id', productController_1.productController.getProduct);
-router.post('/products', productValidations_1.productValidations.addValidators, productValidations_1.productValidations.checkAddValidation, productController_1.productController.createProduct);
-router.delete('/products/:id', productController_1.productController.deleteProduct);
+router.get('/products', ProductController_1.default.getAllProducts);
+router.get('/products/:id', ProductController_1.default.getProduct);
+router.post('/products', productValidations_1.productValidations.addValidators, productValidations_1.productValidations.checkAddValidation, ProductController_1.default.createProduct);
+router.delete('/products/:id', ProductController_1.default.deleteProduct);

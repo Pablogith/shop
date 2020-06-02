@@ -1,18 +1,19 @@
 import express from 'express';
-import {productController} from "../controllers/productController";
+// @ts-ignore
+import ProductController from "../controllers/ProductController";
 import {productValidations} from "../../helpers/productValidations";
 
 const router: any = express.Router();
 
-router.get('/products', productController.getAllProducts);
+router.get('/products', ProductController.getAllProducts);
 
-router.get('/products/:id', productController.getProduct);
+router.get('/products/:id', ProductController.getProduct);
 
 router.post('/products',
     productValidations.addValidators,
     productValidations.checkAddValidation,
-    productController.createProduct);
+    ProductController.createProduct);
 
-router.delete('/products/:id', productController.deleteProduct);
+router.delete('/products/:id', ProductController.deleteProduct);
 
 export {router};

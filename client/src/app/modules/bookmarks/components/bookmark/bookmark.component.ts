@@ -24,9 +24,14 @@ export class BookmarkComponent implements OnInit {
       this.bookmark = params.bookmark;
     });
 
-    this.apiService.getAllProducts().subscribe((data: Array<IProduct>) => {
-      this.products = data;
-    });
+    this.apiService.getAllProducts().subscribe(
+      (response: Array<IProduct>) => {
+        // @ts-ignore
+        this.products = response.data;
+      },
+      error => {
+        console.log(error);
+      });
   }
 
 }

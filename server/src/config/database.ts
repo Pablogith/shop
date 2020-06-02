@@ -15,7 +15,7 @@ export default class Database {
         });
 
         store.on('error', (error: any) => {
-            console.error({error});
+            console.log({error});
         });
     }
 

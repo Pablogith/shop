@@ -1,12 +1,12 @@
 <div class="content">
   <div class="content__image-box">
-    <img [src]="imgUrl" alt="Item's image" class="content__image">
+    <img src="{{product?.image}}" alt="Item's image" class="content__image">
   </div>
   <div class="content__description description">
-    <h3 class="description__title">{{name}}</h3>
-    <p class="description__price">{{price}} {{currency}}</p>
+    <h3 class="description__title">{{product?.name}}</h3>
+    <p class="description__price">{{product?.price}} {{product?.currency}}</p>
     <p class="description__specification">
-      {{description}}
+      {{product?.description}}
     </p>
     <form class="form" [formGroup]="counterForm">
       <div class="form__section">

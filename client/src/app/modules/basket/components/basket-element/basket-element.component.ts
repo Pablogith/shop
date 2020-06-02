@@ -25,25 +25,29 @@ export class BasketElementComponent implements OnInit {
   });
 
 
-  constructor(private apiService: ApiService, private basketService: BasketService) {
+  constructor(
+    private apiService: ApiService,
+    private basketService: BasketService) {
   }
 
   ngOnInit(): void {
     this.counter.disable();
 
-    this.apiService.getProducts(this.productData._id).subscribe((product: IProduct) => {
-      this.product = product;
+    this.apiService.getProducts(this.productData._id).subscribe((product: any) => {
+      this.product = product.data;
     });
 
     this.setCounter(this.productData.amount);
   }
 
-  add(): void {
-    this.basketService.increaseTheAmount(this.product._id);
+  add(id: string): void {
+    let amount = this.basketService.increaseTheAmount(id);
+    this.setCounter(amount);
   }
 
-  remove(): void {
-    this.basketService.decreaseTheAmount(this.product._id);
+  remove(id: string): void {
+    let amount = this.basketService.decreaseTheAmount(id);
+    this.setCounter(amount);
   }
 
   get counter(): AbstractControl {
@@ -53,5 +57,4 @@ export class BasketElementComponent implements OnInit {
   setCounter(number: number): void {
     this.counterForm.controls['counter'].setValue(number);
   }
-
 }

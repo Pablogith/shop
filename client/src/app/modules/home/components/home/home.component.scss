@@ -98,7 +98,7 @@
 @media (min-width: 770px) {
   .section {
     width: 100%;
-    height: auto;
+    height: calc(100vh - 50px);
     display: flex;
     flex-direction: row;
 

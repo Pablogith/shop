@@ -2,10 +2,10 @@ import express from 'express';
 import IProduct from "../../models/IProduct";
 import ProductService from "../../services/ProductService";
 
-export namespace productController {
-    export async function getAllProducts(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+export default class ProductController {
+    static async getAllProducts(req: express.Request, res: express.Response): Promise<express.Response<any>> {
         try {
-            const response: Array<IProduct> = await ProductService.getAllProducts();
+            const response: IProduct[] = await ProductService.getAllProducts();
 
             if (!response) {
                 return res.status(404).send({
@@ -15,7 +15,10 @@ export namespace productController {
                 });
             }
 
-            return res.status(200).send(response);
+            return res.status(200).send({
+                success: true,
+                data: response
+            });
         } catch (error) {
             return res.status(500).send({
                 success: false,
@@ -24,7 +27,7 @@ export namespace productController {
         }
     }
 
-    export async function getProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async getProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
         try {
             const {id} = req.params;
             const response: IProduct = await ProductService.getProduct(id);
@@ -37,7 +40,10 @@ export namespace productController {
                 });
             }
 
-            return res.status(200).send(response);
+            return res.status(200).send({
+                success: true,
+                data: response
+            });
         } catch (error) {
             return res.status(500).send({
                 success: false,
@@ -46,7 +52,7 @@ export namespace productController {
         }
     }
 
-    export async function createProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async createProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
         try {
             const {name, price, category, description, image, currency} = req.body;
 
@@ -70,7 +76,10 @@ export namespace productController {
                     })
                 }
 
-                return res.status(200).send(response);
+                return res.status(200).send({
+                    success: true,
+                    data: response
+                });
             }
 
             return res.status(400).send({
@@ -87,7 +96,7 @@ export namespace productController {
         }
     }
 
-    export async function deleteProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
+    static async deleteProduct(req: express.Request, res: express.Response): Promise<express.Response<any>> {
         try {
             const {id} = req.params;
 
@@ -101,7 +110,10 @@ export namespace productController {
                 });
             }
 
-            return res.status(200).send(response);
+            return res.status(200).send({
+                success: true,
+                data: response
+            });
         } catch (error) {
             return res.status(500).send({
                 success: false,

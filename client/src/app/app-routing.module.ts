@@ -5,15 +5,15 @@ import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './modules/home/home.module#HomeModule'
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'bookmark',
-    loadChildren: './modules/bookmarks/bookmarks.module#BookmarksModule'
+    loadChildren: () => import('./modules/bookmarks/bookmarks.module').then(m => m.BookmarksModule)
   },
   {
     path: 'basket',
-    loadChildren: './modules/basket/basket.module#BasketModule'
+    loadChildren: () => import('./modules/basket/basket.module').then(m => m.BasketModule)
   }
 ];
 

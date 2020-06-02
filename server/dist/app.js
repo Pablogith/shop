@@ -57,7 +57,6 @@ var App = /** @class */ (function () {
         this.initializeMiddleware();
         this.initializeControllers();
     }
-
     App.prototype.initializeMiddleware = function () {
         this.app.use(body_parser_1.default.json());
         this.app.use(body_parser_1.default.urlencoded({extended: false}));

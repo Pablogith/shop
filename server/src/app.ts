@@ -7,12 +7,12 @@ import cors from 'cors';
 
 import Database from "./config/database";
 import {Methods} from "./models/methods";
-import {ErrorHandler, handleError} from "./services/ErrorHandling";
+import {handleError} from "./services/ErrorHandling";
 
 export default class App {
     public app: express.Application;
 
-    constructor(public controllers: Array<any>, public port: number) {
+    constructor(public controllers: any[], public port: number) {
         this.app = express();
         this.port = port;
 
@@ -37,13 +37,13 @@ export default class App {
     }
 
     private setCors(): void {
-        const allowedOrigin: Array<string> = ['http://localhost:4200'];
-        const methods: Array<Methods> = ['GET', 'POST', 'PUT', 'DELETE'];
+        const allowedOrigin: string[] = ['http://localhost:4200'];
+        const methods: Methods[] = ['GET', 'POST', 'PUT', 'DELETE'];
 
         this.app.disable('x-powered-by');
         this.app.use(cors({
             origin: allowedOrigin,
-            methods: methods
+            methods
         }));
     }
 

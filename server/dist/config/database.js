@@ -53,7 +53,7 @@ var Database = /** @class */ (function () {
             collection: 'session'
         });
         store.on('error', function (error) {
-            console.error({ error: error });
+            console.log({error: error});
         });
     };
     Database.connect = function () {

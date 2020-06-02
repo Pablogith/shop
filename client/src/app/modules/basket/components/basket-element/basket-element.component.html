@@ -1,13 +1,19 @@
 <div class="product">
-  <img [src]="product.image" alt="product photo" class="product__image">
+  <img src="{{product?.image}}" alt="product photo" class="product__image">
   <div class="product__description">
-    <p class="product__name">{{product.name}}</p>
-    <p class="product__price">{{product.price}} {{product.currency}}</p>
+    <p class="product__name">
+      <a
+        class="product__link"
+        [routerLink]="['/bookmark/glasses', product?._id]">
+        {{product?.name}}
+      </a>
+    </p>
+    <p class="product__price">{{product?.price}} {{product?.currency}}</p>
   </div>
 
   <form class="product__form form" [formGroup]="counterForm">
     <div class="form__section">
-      <button class="form__button form__button--remove" type="button" (click)="remove()">
+      <button class="form__button form__button--remove" type="button" (click)="remove(product._id)">
         <mat-icon
           aria-hidden="false"
           aria-label="add">
@@ -15,7 +21,7 @@
         </mat-icon>
       </button>
       <input type="number" class="form__input" [value]="counter.value" formControlName="counter">
-      <button class="form__button form__button--add" type="button" (click)="add()">
+      <button class="form__button form__button--add" type="button" (click)="add(product._id)">
         <mat-icon
           aria-hidden="false"
           aria-label="add">

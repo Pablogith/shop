@@ -18,9 +18,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 0:
+                case 1:
+                    t = op;
+                    break;
+                case 4:
+                    _.label++;
+                    return {value: op[1], done: false};
+                case 5:
+                    _.label++;
+                    y = op[1];
+                    op = [0];
+                    continue;
                 case 7:
                     op = _.ops.pop();
                     _.trys.pop();
@@ -65,7 +74,6 @@ var Product_1 = require("../models/Product");
 var ProductService = /** @class */ (function () {
     function ProductService() {
     }
-
     ProductService.getAllProducts = function () {
         return __awaiter(this, void 0, void 0, function () {
             var error_1;
@@ -140,8 +148,6 @@ var ProductService = /** @class */ (function () {
     return ProductService;
 }());
 exports.default = ProductService;
-
 function productValidation(req, res) {
 }
-
 exports.productValidation = productValidation;

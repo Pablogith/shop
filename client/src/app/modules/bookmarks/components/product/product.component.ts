@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../../../../shared/models/IProduct";
 import {Currencies} from "../../../../shared/models/currencies";
 import {ActivatedRoute} from "@angular/router";
+import {BasketService} from "../../../../core/services/basket/basket.service";
+import {IProductInformation} from "../../../../shared/models/IBasket";
 
 @Component({
   selector: 'bookmark-product',
@@ -13,7 +15,9 @@ export class ItemComponent implements OnInit {
 
   bookmark: string;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(
+    private basketService: BasketService,
+    private activatedRoute: ActivatedRoute) {
   }
 
   isFavourite: boolean = false;
@@ -25,6 +29,12 @@ export class ItemComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.bookmark = params.bookmark;
     });
+  }
+
+  addToBasket(event: Event, id: string): void {
+    event.preventDefault();
+    const newItem: IProductInformation = {_id: id, amount: 1};
+    this.basketService.addToBasket(newItem);
   }
 
   get price(): number {

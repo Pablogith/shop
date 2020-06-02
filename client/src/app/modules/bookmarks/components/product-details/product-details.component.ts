@@ -37,9 +37,14 @@ export class ProductDetailsComponent implements OnInit {
       this.productId = params.productId;
     });
 
-    this.apiService.getProducts(this.productId).subscribe((product: IProduct) => {
-      this.product = product;
-    });
+    this.apiService.getProducts(this.productId).subscribe(
+      (response: Object) => {
+        // @ts-ignore
+        this.product = response.data;
+      },
+      error => {
+        console.log(error);
+      });
 
     this.counter.disable();
   }
@@ -79,25 +84,5 @@ export class ProductDetailsComponent implements OnInit {
 
   setCounter(number: number): void {
     this.counterForm.controls['counter'].setValue(number);
-  }
-
-  get name(): string {
-    return this.product.name;
-  }
-
-  get price(): number {
-    return this.product.price;
-  }
-
-  get currency(): string {
-    return this.product.currency;
-  }
-
-  get imgUrl(): string {
-    return this.product.image;
-  }
-
-  get description(): string {
-    return this.product.description;
   }
 }

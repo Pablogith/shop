@@ -1,11 +1,12 @@
 import express from 'express';
-import {check, sanitizeBody, validationResult} from "express-validator";
+import {check, ValidationChain, validationResult} from "express-validator";
+
 
 export namespace productValidations {
-    const currencies: Array<string> = ['EUR', 'PLN', 'USD'];
-    const categories: Array<string> = ['flowerpot', 'vases', 'mirrors', 'candles', 'glasses'];
+    const currencies: string[] = ['EUR', 'PLN', 'USD'];
+    const categories: string[] = ['flowerpot', 'vases', 'mirrors', 'candles', 'glasses'];
 
-    export const addValidators: Array<any> = [
+    export const addValidators: ValidationChain[] = [
         check('currency')
             .trim()
             .isIn(currencies)

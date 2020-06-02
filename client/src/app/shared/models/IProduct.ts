@@ -11,3 +11,8 @@ export interface IProduct {
   createdAt: string;
   category: string;
 }
+
+export interface IProductData {
+  success: boolean | string;
+  data: Array<IProduct> | IProduct;
+}
