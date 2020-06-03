@@ -5,7 +5,7 @@
       <a
         class="product__link"
         [routerLink]="['/bookmark/glasses', product?._id]">
-        {{product?.name}}
+        {{product?.name | titlecase}}
       </a>
     </p>
     <p class="product__price">{{product?.price}} {{product?.currency}}</p>

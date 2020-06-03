@@ -11,7 +11,9 @@ export class BasketSummaryComponent implements OnInit {
   inputChecked: boolean = false;
 
   order: FormGroup = new FormGroup({
-    paymentType: new FormControl(''),
+    paymentMethod: new FormControl('', [
+      Validators.required
+    ]),
     street: new FormControl('', [
       Validators.required,
       Validators.maxLength(20),
@@ -49,6 +51,12 @@ export class BasketSummaryComponent implements OnInit {
 
   changeChecked(event: Event): void {
     event.preventDefault();
+
+    const {target} = event;
+    const child = (target as HTMLInputElement).children[0];
+    const childValue = (child as HTMLInputElement).value;
+    this.order.controls.paymentMethod.setValue(childValue);
+
     this.inputChecked = !this.inputChecked;
   }
 
@@ -56,8 +64,8 @@ export class BasketSummaryComponent implements OnInit {
     console.log(this.order);
   }
 
-  get paymentType(): AbstractControl {
-    return this.order.get('paymentType');
+  get paymentMethod(): AbstractControl {
+    return this.order.get('paymentMethod');
   }
 
   get street(): AbstractControl {

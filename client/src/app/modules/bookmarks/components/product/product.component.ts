@@ -33,7 +33,13 @@ export class ItemComponent implements OnInit {
 
   addToBasket(event: Event, id: string): void {
     event.preventDefault();
-    const newItem: IProductInformation = {_id: id, amount: 1};
+
+    const newItem: IProductInformation = {
+      _id: id,
+      category: this.productData.category,
+      amount: 1
+    };
+
     this.basketService.addToBasket(newItem);
   }
 

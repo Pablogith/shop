@@ -1,5 +1,6 @@
 export interface IProductInformation {
   _id: string;
+  category: string;
   amount: number;
 }
 

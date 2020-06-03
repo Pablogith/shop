@@ -43,7 +43,6 @@ var ProductService_1 = __importDefault(require("../../services/ProductService"))
 var ProductController = /** @class */ (function () {
     function ProductController() {
     }
-
     ProductController.getAllProductsFromCategory = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var category, response, error_1;
@@ -70,7 +69,7 @@ var ProductController = /** @class */ (function () {
                         error_1 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_1
+                            message: error_1
                         })];
                     case 3:
                         return [2 /*return*/];
@@ -103,7 +102,7 @@ var ProductController = /** @class */ (function () {
                         error_2 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_2
+                            message: error_2
                         })];
                     case 3:
                         return [2 /*return*/];
@@ -137,7 +136,7 @@ var ProductController = /** @class */ (function () {
                         error_3 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_3
+                            message: error_3
                         })];
                     case 3:
                         return [2 /*return*/];
@@ -188,7 +187,7 @@ var ProductController = /** @class */ (function () {
                         error_4 = _b.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_4
+                            message: error_4
                         })];
                     case 4:
                         return [2 /*return*/];
@@ -222,7 +221,7 @@ var ProductController = /** @class */ (function () {
                         error_5 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            error: error_5
+                            message: error_5
                         })];
                     case 3:
                         return [2 /*return*/];

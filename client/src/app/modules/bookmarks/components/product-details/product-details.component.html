@@ -3,7 +3,7 @@
     <img src="{{product?.image}}" alt="Item's image" class="content__image">
   </div>
   <div class="content__description description">
-    <h3 class="description__title">{{product?.name}}</h3>
+    <h3 class="description__title">{{product?.name | titlecase}}</h3>
     <p class="description__price">{{product?.price}} {{product?.currency}}</p>
     <p class="description__specification">
       {{product?.description}}

@@ -23,7 +23,7 @@ export default class ProductController {
         } catch (error) {
             return res.status(500).send({
                 success: false,
-                error
+                message: error
             });
         }
     }
@@ -47,7 +47,7 @@ export default class ProductController {
         } catch (error) {
             return res.status(500).send({
                 success: false,
-                error
+                message: error
             });
         }
     }
@@ -72,7 +72,7 @@ export default class ProductController {
         } catch (error) {
             return res.status(500).send({
                 success: false,
-                error
+                message: error
             });
         }
     }
@@ -115,7 +115,7 @@ export default class ProductController {
         } catch (error) {
             return res.status(500).send({
                 success: false,
-                error
+                message: error
             });
 
         }
@@ -142,7 +142,7 @@ export default class ProductController {
         } catch (error) {
             return res.status(500).send({
                 success: false,
-                error
+                message: error
             });
         }
     }

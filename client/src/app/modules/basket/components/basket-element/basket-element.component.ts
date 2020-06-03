@@ -33,7 +33,7 @@ export class BasketElementComponent implements OnInit {
   ngOnInit(): void {
     this.counter.disable();
 
-    this.apiService.getProduct(this.productData._id).subscribe((product: any) => {
+    this.apiService.getProduct(this.productData._id, this.productData.category).subscribe((product: any) => {
       this.product = product.data;
     });
 
