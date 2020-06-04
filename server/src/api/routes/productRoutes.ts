@@ -18,4 +18,6 @@ router.post('/products',
 
 router.delete('/products/:id', ProductController.deleteProduct);
 
+router.put('/products/:id', ProductController.editProduct);
+
 export {router};

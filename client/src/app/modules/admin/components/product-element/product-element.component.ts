@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ApiService} from "../../../../core/http/api/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'product-element',
@@ -7,11 +9,48 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProductElementComponent implements OnInit {
   @Input() product;
+  @Input() index: number;
 
-  constructor() {
+  @Output()
+  deleteProd: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor(
+    private router: Router,
+    private apiService: ApiService) {
   }
 
   ngOnInit(): void {
+  }
+
+  deleteProduct(id: string): void {
+    this.apiService.deleteProduct(id).subscribe(
+      response => {
+        this.deleteProd.emit(this.index);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  get id(): string {
+    return this.product._id;
+  }
+
+  get category(): string {
+    return this.product.category;
+  }
+
+  get name(): string {
+    return this.product.name;
+  }
+
+  get price(): string {
+    return this.product.price;
+  }
+
+  get currency(): string {
+    return this.product.currency;
   }
 
 }

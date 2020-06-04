@@ -10,10 +10,5 @@ export interface IProduct {
   currency: Currencies;
   createdAt: string;
   category: string;
-  data?: any;
-}
-
-export interface IProductData {
-  success: boolean | string;
-  data: Array<IProduct> | IProduct;
+  data?: any[];
 }

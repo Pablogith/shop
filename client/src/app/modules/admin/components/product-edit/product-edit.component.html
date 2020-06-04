@@ -1,0 +1,77 @@
+<section class="section">
+  <h2 class="section__title">Edit {{product?.name}}</h2>
+  <div class="section__data">
+    <img class="section__image" src="{{product?.image}}" alt="Product image">
+
+    <form
+      [formGroup]="editForm"
+      (ngSubmit)="onSubmit()"
+      class="section__information">
+      <div class="section__wrapper">
+        <label class="section__description">Created at: </label>
+        <p class="section__value">
+          <span>{{product?.createdAt | date: 'EEEE, M/d/y' }} at</span>
+          <span> {{product?.createdAt | date: 'mediumTime' }}</span>
+        </p>
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Name: </label>
+        <input
+          class="section__input"
+          type="text"
+          formControlName="name"
+          [value]="product?.name">
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Price: </label>
+        <input
+          class="section__input"
+          type="number"
+          formControlName="price"
+          [value]="product?.price">
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Currency: </label>
+        <p class="section__value">{{product?.currency}}</p>
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Description: </label>
+        <input
+          class="section__input"
+          type="text"
+          formControlName="description"
+          [value]="product?.description">
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Category: </label>
+        <!--        <p class="section__input">{{product?.category}}</p>-->
+        <select formControlName="category">
+          <option [value]="category" *ngFor="let category of categories">
+            {{category}}
+          </option>
+        </select>
+      </div>
+
+      <div class="section__wrapper">
+        <label class="section__description">Image url: </label>
+        <input
+          class="section__input"
+          type="text"
+          formControlName="image"
+          [value]="product?.image">
+      </div>
+
+      <button
+        [disabled]="editForm.invalid"
+        class="section__submit-btn"
+        type="submit">
+        Edit
+      </button>
+    </form>
+  </div>
+</section>

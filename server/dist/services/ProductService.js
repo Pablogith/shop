@@ -127,6 +127,32 @@ var ProductService = /** @class */ (function () {
             });
         });
     };
+    ProductService.editProduct = function (id, product) {
+        return __awaiter(this, void 0, void 0, function () {
+            var error_6;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, Product_1.ProductModel.updateOne({ _id: id }, {
+                                $set: {
+                                    name: product.name,
+                                    price: product.price,
+                                    category: product.category,
+                                    description: product.description,
+                                    image: product.image,
+                                    currency: product.currency
+                                }
+                            })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2:
+                        error_6 = _a.sent();
+                        return [2 /*return*/, error_6];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     return ProductService;
 }());
 exports.default = ProductService;

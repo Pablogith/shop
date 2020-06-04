@@ -96,6 +96,13 @@
     text-align: center;
   }
 
+  .edit-link,
+  .edit-link:active,
+  .edit-link:visited,
+  .edit-link:focus {
+    color: black;
+  }
+
   mat-icon {
     font-size: 40px;
     display: inline-flex;

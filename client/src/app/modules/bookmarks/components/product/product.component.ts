@@ -4,6 +4,7 @@ import {Currencies} from "../../../../shared/models/currencies";
 import {ActivatedRoute} from "@angular/router";
 import {BasketService} from "../../../../core/services/basket/basket.service";
 import {IProductInformation} from "../../../../shared/models/IBasket";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'bookmark-product',
@@ -16,6 +17,7 @@ export class ItemComponent implements OnInit {
   bookmark: string;
 
   constructor(
+    private snackBar: MatSnackBar,
     private basketService: BasketService,
     private activatedRoute: ActivatedRoute) {
   }
@@ -33,6 +35,7 @@ export class ItemComponent implements OnInit {
 
   addToBasket(event: Event, id: string): void {
     event.preventDefault();
+    event.stopPropagation();
 
     const newItem: IProductInformation = {
       _id: id,
@@ -41,6 +44,12 @@ export class ItemComponent implements OnInit {
     };
 
     this.basketService.addToBasket(newItem);
+
+    this.snackBar.open(`Buy ${this.toTitleCase(this.productData.name)}`, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackBar--positive']
+    });
   }
 
   get price(): number {
@@ -63,4 +72,12 @@ export class ItemComponent implements OnInit {
     return this.productData._id;
   }
 
+  toTitleCase(word: string): string {
+    return word.replace(
+      /\w\S*/g,
+      function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
 }

@@ -3,13 +3,15 @@
   <div class="product__description">
     <p class="product__name">
       <a class="product__link">
-        {{product?.name | titlecase}}
+        {{name | titlecase}}
       </a>
     </p>
-    <p class="product__price">{{product?.price}} {{product?.currency}}</p>
+    <p class="product__price">{{price}} {{currency}}</p>
   </div>
   <div class="product__manage">
-    <a class="edit-link">
+    <a
+      [routerLink]="['/admin/product-manage', category, id]"
+      class="edit-link">
       <mat-icon
         aria-hidden="false"
         aria-label="create icon"
@@ -17,7 +19,9 @@
         create
       </mat-icon>
     </a>
-    <button class="delete-btn">
+    <button
+      (click)="deleteProduct(id)"
+      class="delete-btn">
       <mat-icon
         aria-hidden="false"
         aria-label="delete icon"

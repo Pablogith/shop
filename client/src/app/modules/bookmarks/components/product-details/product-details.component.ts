@@ -6,6 +6,7 @@ import {IProduct} from "../../../../shared/models/IProduct";
 import {IProductInformation} from "../../../../shared/models/IBasket";
 import {ApiService} from "../../../../core/http/api/api.service";
 import {BasketService} from "../../../../core/services/basket/basket.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'bookmark-item-details',
@@ -23,12 +24,13 @@ export class ProductDetailsComponent implements OnInit {
   });
 
   constructor(
+    private snackBar: MatSnackBar,
     private basketService: BasketService,
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService) {
   }
 
-  bookmark: string;
+  category: string;
   product: IProduct;
   productId: string;
   _counter: number = 1;
@@ -36,10 +38,10 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.productId = params.productId;
-      this.bookmark = params.bookmark;
+      this.category = params.bookmark;
     });
 
-    this.apiService.getProduct(this.productId, this.bookmark).subscribe(
+    this.apiService.getProduct(this.productId, this.category).subscribe(
       (response: Object) => {
         // @ts-ignore
         this.product = response.data;
@@ -59,6 +61,12 @@ export class ProductDetailsComponent implements OnInit {
     };
 
     this.basketService.addToBasket(product);
+
+    this.snackBar.open(`Buy ${this.toTitleCase(this.product.name)}`, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackBar--positive']
+    });
   }
 
   add(): void {
@@ -87,5 +95,14 @@ export class ProductDetailsComponent implements OnInit {
 
   setCounter(number: number): void {
     this.counterForm.controls['counter'].setValue(number);
+  }
+
+  toTitleCase(word: string): string {
+    return word.replace(
+      /\w\S*/g,
+      function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
   }
 }

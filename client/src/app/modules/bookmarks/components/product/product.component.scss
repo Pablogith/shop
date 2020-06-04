@@ -72,3 +72,9 @@
 mat-icon {
   transition: all .3s ease-in-out;
 }
+
+::ng-deep .snackBar--positive {
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+}

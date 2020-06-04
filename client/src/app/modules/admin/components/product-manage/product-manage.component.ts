@@ -7,7 +7,7 @@ import {ApiService} from "../../../../core/http/api/api.service";
   styleUrls: ['./product-manage.component.scss']
 })
 export class ProductManageComponent implements OnInit {
-  products: Array<object>;
+  products: object[];
 
   constructor(private apiService: ApiService) {
   }
@@ -15,13 +15,16 @@ export class ProductManageComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getAllProducts().subscribe(
       result => {
-        this.products = result;
-        console.log(this.products);
+        this.products = result.data;
       },
       error => {
         console.log(error);
       }
     )
+  }
+
+  deleteFromList(valueEmitted: number): void {
+    this.products.splice(valueEmitted, 1);
   }
 
 }

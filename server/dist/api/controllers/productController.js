@@ -229,6 +229,58 @@ var ProductController = /** @class */ (function () {
             });
         });
     };
+    ProductController.editProduct = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var id, _a, name_2, price, category, description, image, currency, isGood, response, error_6;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 3, , 4]);
+                        id = req.params.id;
+                        _a = req.body, name_2 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency;
+                        isGood = [name_2, price, category, description, image].every(function (value) {
+                            return !!value;
+                        });
+                        if (!isGood) return [3 /*break*/, 2];
+                        return [4 /*yield*/, ProductService_1.default.editProduct(id, {
+                            name: name_2,
+                            price: price,
+                            category: category,
+                            description: description,
+                            image: image,
+                            currency: currency
+                        })];
+                    case 1:
+                        response = _b.sent();
+                        if (!response) {
+                            return [2 /*return*/, res.status(404).send({
+                                success: false,
+                                status: 404,
+                                message: 'Product not found'
+                            })];
+                        }
+                        return [2 /*return*/, res.status(200).send({
+                            success: true,
+                            data: response
+                        })];
+                    case 2:
+                        return [2 /*return*/, res.status(400).send({
+                            success: false,
+                            status: 400,
+                            message: 'Invalid request'
+                        })];
+                    case 3:
+                        error_6 = _b.sent();
+                        return [2 /*return*/, res.status(500).send({
+                            success: false,
+                            message: error_6
+                        })];
+                    case 4:
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return ProductController;
 }());
 exports.default = ProductController;

@@ -8,12 +8,12 @@ import {IProduct} from "../../../shared/models/IProduct";
   providedIn: 'root'
 })
 export class ApiService {
-  private url: string = ' http://localhost:3000';
+  private _url: string = ' http://localhost:3000/products';
 
   constructor(private http: HttpClient) {
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private _handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
@@ -25,26 +25,41 @@ export class ApiService {
   };
 
   getAllProductsFromCategory(category: string) {
-    return this.http.get(`${this.url}/products/${category}`)
+    return this.http.get(`${this._url}/${category}`)
       .pipe(
         retry(3),
-        catchError(this.handleError)
+        catchError(this._handleError)
       );
   }
 
-  getAllProducts(): Observable<Array<IProduct>> {
-    return this.http.get<Array<IProduct>>(`${this.url}/products`)
+  getAllProducts(): Observable<any> {
+    return this.http.get<IProduct[]>(`${this._url}`)
       .pipe(
         retry(3),
-        catchError(this.handleError)
+        catchError(this._handleError)
       );
   }
 
-  getProduct(id: string, bookmark: string): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.url}/products/${bookmark}/${id}`)
+  getProduct(id: string, category: string): Observable<any> {
+    return this.http.get<IProduct>(`${this._url}/${category}/${id}`)
       .pipe(
         retry(6),
-        catchError(this.handleError)
+        catchError(this._handleError)
+      );
+  }
+
+  deleteProduct(id: string): Observable<any> {
+    return this.http.delete(`${this._url}/${id}`)
+      .pipe(
+        retry(3),
+        catchError(this._handleError)
+      );
+  }
+
+  editProduct(id: string, data: any): Observable<any> {
+    return this.http.put(`${this._url}/${id}`, data)
+      .pipe(
+        catchError(this._handleError)
       );
   }
 }

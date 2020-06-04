@@ -3,8 +3,10 @@
   <div class="section__products">
     <ul class="section__list">
       <product-element
-        *ngFor="let product of products.data"
-        [product]="product">
+        (deleteProd)="deleteFromList($event)"
+        *ngFor="let product of products; index as i"
+        [product]="product"
+        [index]="i">
       </product-element>
     </ul>
   </div>

@@ -43,6 +43,23 @@ export default class ProductService {
             return error;
         }
     }
+
+    static async editProduct(id: string, product: IProduct): Promise<any> {
+        try {
+            return await ProductModel.updateOne({_id: id}, {
+                $set: {
+                    name: product.name,
+                    price: product.price,
+                    category: product.category,
+                    description: product.description,
+                    image: product.image,
+                    currency: product.currency
+                }
+            });
+        } catch (error) {
+            return error;
+        }
+    }
 }
 
 export function productValidation(req: express.Request, res: express.Response): void {

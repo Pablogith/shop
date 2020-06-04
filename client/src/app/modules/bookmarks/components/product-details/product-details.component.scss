@@ -54,6 +54,12 @@
   }
 }
 
+::ng-deep .snackBar--positive {
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+}
+
 @include counterForm;
 
 @media (min-width: 780px) {
