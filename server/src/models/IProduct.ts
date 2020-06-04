@@ -8,4 +8,5 @@ export default interface IProduct {
     description: string;
     image: string;
     _v?: number;
+    data?: any
 }

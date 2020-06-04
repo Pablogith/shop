@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'basket',
     loadChildren: () => import('./modules/basket/basket.module').then(m => m.BasketModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

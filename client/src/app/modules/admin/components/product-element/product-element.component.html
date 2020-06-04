@@ -1,0 +1,29 @@
+<div class="product">
+  <img src="{{product?.image}}" alt="product photo" class="product__image">
+  <div class="product__description">
+    <p class="product__name">
+      <a class="product__link">
+        {{product?.name | titlecase}}
+      </a>
+    </p>
+    <p class="product__price">{{product?.price}} {{product?.currency}}</p>
+  </div>
+  <div class="product__manage">
+    <a class="edit-link">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="create icon"
+        class="button-create">
+        create
+      </mat-icon>
+    </a>
+    <button class="delete-btn">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="delete icon"
+        class="button-delete">
+        delete
+      </mat-icon>
+    </button>
+  </div>
+</div>

@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .2);
   margin: 0 auto;
   transition: all .2s ease-in-out;
 
@@ -19,9 +19,9 @@
   }
 
   &:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, .2);
     cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, .3);
+    transform: translateY(-5px);
   }
 
   &__title {

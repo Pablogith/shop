@@ -1,0 +1,11 @@
+<section class="section">
+  <h1 class="section__title">Product manage</h1>
+  <div class="section__products">
+    <ul class="section__list">
+      <product-element
+        *ngFor="let product of products.data"
+        [product]="product">
+      </product-element>
+    </ul>
+  </div>
+</section>

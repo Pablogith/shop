@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
-
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -112,7 +111,6 @@ var Order_1 = require("../models/Order");
 var OrderService = /** @class */ (function () {
     function OrderService() {
     }
-
     OrderService.addOrder = function (order, product) {
         return __awaiter(this, void 0, void 0, function () {
             var _productOrder, _product, _order, error_1;

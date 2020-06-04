@@ -1,0 +1,24 @@
+.section {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  height: auto;
+
+  &__title {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 770px) {
+  .section {
+
+    &__title {
+      margin-left: 50px;
+    }
+  }
+}

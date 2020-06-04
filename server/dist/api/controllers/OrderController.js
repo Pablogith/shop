@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
-
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -115,7 +114,6 @@ var OrderService_1 = __importDefault(require("../../services/OrderService"));
 var OrderController = /** @class */ (function () {
     function OrderController() {
     }
-
     OrderController.createOrder = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var order, orderProduct, orderDataArray, orderDataIsGood, productDataArray, productDataIsGood, response,

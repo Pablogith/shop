@@ -10,6 +10,7 @@ export interface IProduct {
   currency: Currencies;
   createdAt: string;
   category: string;
+  data?: any;
 }
 
 export interface IProductData {
