@@ -15,4 +15,4 @@ router.get('/products/:category/:id', ProductController_1.default.getProduct);
 router.get('/products', ProductController_1.default.getAllProducts);
 router.post('/products', productValidations_1.productValidations.addValidators, productValidations_1.productValidations.checkAddValidation, ProductController_1.default.createProduct);
 router.delete('/products/:id', ProductController_1.default.deleteProduct);
-router.put('/products/:id', ProductController_1.default.editProduct);
+router.put('/products/:id', productValidations_1.productValidations.addValidators, productValidations_1.productValidations.checkAddValidation, ProductController_1.default.editProduct);

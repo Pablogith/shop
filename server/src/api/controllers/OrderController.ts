@@ -33,7 +33,7 @@ export default class OrderController {
                     return res.status(404).send({
                         success: false,
                         status: 404,
-                        message: 'Order not found'
+                        message: 'IOrder not found'
                     })
                 }
 
@@ -66,6 +66,15 @@ export default class OrderController {
                     status: 404,
                     message: "Not Found"
                 });
+            }
+
+            if (response.length <= 0) {
+                return res.status(404).send({
+                    success: false,
+                    errors: {
+                        message: "Not found any orders"
+                    }
+                })
             }
 
             return res.status(200).send({

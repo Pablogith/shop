@@ -1,0 +1,66 @@
+<section class="section">
+  <form
+    [formGroup]="addForm"
+    (ngSubmit)="onSubmit()"
+    class="section__information">
+
+    <div
+      [ngClass]="(name.invalid && name.touched) ? 'section__wrapper--invalid' : 'section__wrapper'"
+      class="section__wrapper">
+      <label class="section__description">Name: </label>
+      <input
+        class="section__input"
+        type="text"
+        formControlName="name">
+    </div>
+
+    <div
+      [ngClass]="(price.invalid && price.touched) ? 'section__wrapper--invalid' : 'section__wrapper'"
+      class="section__wrapper">
+      <label class="section__description">Price: </label>
+      <input
+        class="section__input"
+        type="number"
+        min="1"
+        formControlName="price">
+    </div>
+
+    <div
+      [ngClass]="(description.invalid && description.touched) ? 'section__wrapper--invalid' : 'section__wrapper'"
+      class="section__wrapper">
+      <label class="section__description">Description: </label>
+      <input
+        class="section__input"
+        type="text"
+        formControlName="description">
+    </div>
+
+    <div
+      [ngClass]="(category.invalid && category.touched) ? 'section__wrapper--invalid' : 'section__wrapper'"
+      class="section__wrapper">
+      <label class="section__description">Category: </label>
+      <select formControlName="category">
+        <option [value]="category" *ngFor="let category of categories">
+          {{category}}
+        </option>
+      </select>
+    </div>
+
+    <div
+      [ngClass]="(image.invalid && image.touched) ? 'section__wrapper--invalid' : 'section__wrapper'"
+      class="section__wrapper">
+      <label class="section__description">Image url: </label>
+      <input
+        class="section__input"
+        type="text"
+        formControlName="image">
+    </div>
+
+    <button
+      [disabled]="addForm.invalid"
+      class="section__submit-btn"
+      type="submit">
+      Add
+    </button>
+  </form>
+</section>

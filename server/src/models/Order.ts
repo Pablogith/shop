@@ -49,6 +49,6 @@ const OrderSchema = new Schema({
     }
 });
 
-const OrderModel = mongoose.model<mongoose.Document>('Order', OrderSchema);
+const OrderModel = mongoose.model<mongoose.Document>('IOrder', OrderSchema);
 
 export {OrderModel, ProductsModel};

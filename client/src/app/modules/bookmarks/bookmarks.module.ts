@@ -5,10 +5,18 @@ import {BookmarksRoutingModule} from './bookmarks-routing.module';
 import {BookmarkComponent} from './components/bookmark/bookmark.component';
 import {ItemComponent} from './components/product/product.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
+import {FilterBarComponent} from './components/filter-bar/filter-bar.component';
+import {SearchComponent} from './components/search/search.component';
 
 
 @NgModule({
-  declarations: [BookmarkComponent, ItemComponent, ProductDetailsComponent],
+  declarations: [
+    BookmarkComponent,
+    ItemComponent,
+    ProductDetailsComponent,
+    FilterBarComponent,
+    SearchComponent
+  ],
   imports: [
     BookmarksRoutingModule,
     SharedModule

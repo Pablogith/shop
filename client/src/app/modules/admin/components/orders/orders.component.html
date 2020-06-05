@@ -1,1 +1,14 @@
-<p>orders works!</p>
+<section class="section">
+  <h1 class="section__title">
+    Orders
+  </h1>
+  <h3 *ngIf="!orders || orders.length <= 0; else orderElement">
+    {{ message }}
+  </h3>
+  <ng-template #orderElement>
+    <orders-element
+      *ngFor="let order of orders"
+      [order]="order">
+    </orders-element>
+  </ng-template>
+</section>

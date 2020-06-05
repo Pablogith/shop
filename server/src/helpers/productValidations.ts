@@ -35,8 +35,8 @@ export namespace productValidations {
             .trim()
             .not().isEmpty()
             .withMessage('Description is required')
-            .isLength({min: 3, max: 200})
-            .withMessage('Description must be at least 3 characters long and less than 200 characters'),
+            .isLength({min: 3, max: 320})
+            .withMessage('Description must be at least 3 characters long and less than 320 characters'),
         check('image')
             .not().isEmpty()
             .withMessage('Image is required')

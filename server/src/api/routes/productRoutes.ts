@@ -18,6 +18,9 @@ router.post('/products',
 
 router.delete('/products/:id', ProductController.deleteProduct);
 
-router.put('/products/:id', ProductController.editProduct);
+router.put('/products/:id',
+    productValidations.addValidators,
+    productValidations.checkAddValidation,
+    ProductController.editProduct);
 
 export {router};

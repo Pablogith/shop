@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../core/http/api/api.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-product-manage',
@@ -9,7 +10,9 @@ import {ApiService} from "../../../../core/http/api/api.service";
 export class ProductManageComponent implements OnInit {
   products: object[];
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private apiService: ApiService) {
   }
 
   ngOnInit(): void {
@@ -25,6 +28,11 @@ export class ProductManageComponent implements OnInit {
 
   deleteFromList(valueEmitted: number): void {
     this.products.splice(valueEmitted, 1);
+    this.snackBar.open('Product deleted', '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackBar--success']
+    });
   }
 
 }

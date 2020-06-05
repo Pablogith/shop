@@ -1,0 +1,101 @@
+@import "../../../../../assets/scss/base";
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  height: auto;
+  padding: 40px;
+
+  &__image {
+    height: 300px;
+    width: 300px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    border-bottom: 2px solid $main-color;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease;
+
+    &--invalid {
+      border-bottom: 2px solid rgb(241, 39, 39);
+    }
+  }
+
+  &__description {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  &__value,
+  &__input {
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
+
+  &__submit-btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: $main-color;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(0, 213, 100, .3);
+    transition: all .2s ease;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 7px 15px rgba(0, 213, 100, .4);
+      transform: translateY(-5px);
+    }
+
+    &:disabled {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+      background-color: rgba(123, 123, 123, 0.67);
+
+      &:hover {
+        cursor: not-allowed;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+::ng-deep .snackBar--success {
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+}
+
+::ng-deep .snackBar--failed {
+  background-color: rgb(238, 89, 89);
+  color: white;
+  font-weight: 700;
+}
+
+@media (min-width: 770px) {
+  .section {
+
+    &__wrapper,
+    &__submit-btn {
+      width: 600px;
+    }
+  }
+}
+

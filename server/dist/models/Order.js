@@ -72,5 +72,5 @@ var OrderSchema = new mongoose_1.Schema({
         ref: 'ProductOrder'
     }
 });
-var OrderModel = mongoose_1.default.model('Order', OrderSchema);
+var OrderModel = mongoose_1.default.model('IOrder', OrderSchema);
 exports.OrderModel = OrderModel;

@@ -4,6 +4,7 @@ import {ApiService} from "../../../../core/http/api/api.service";
 import {IProduct} from "../../../../shared/models/IProduct";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {categories} from "../../../../shared/models/categories";
 
 @Component({
   selector: 'app-product-edit',
@@ -12,7 +13,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ProductEditComponent implements OnInit {
 
-  categories: string[] = ['glasses', 'candles', 'mirrors', 'vases', 'flowerpot'];
+  categories = categories;
 
   productId: string;
   category: string;
@@ -90,7 +91,8 @@ export class ProductEditComponent implements OnInit {
         });
       },
       error => {
-        this.snackBar.open('Error', '', {
+        console.log(error);
+        this.snackBar.open(`${error.name.msg}`, '', {
           duration: 3000,
           verticalPosition: 'top',
           panelClass: ['snackBar--failed']

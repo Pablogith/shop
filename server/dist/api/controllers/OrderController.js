@@ -152,7 +152,7 @@ var OrderController = /** @class */ (function () {
                             return [2 /*return*/, res.status(404).send({
                                 success: false,
                                 status: 404,
-                                message: 'Order not found'
+                                message: 'IOrder not found'
                             })];
                         }
                         return [2 /*return*/, res.status(200).send({
@@ -192,6 +192,14 @@ var OrderController = /** @class */ (function () {
                                 success: false,
                                 status: 404,
                                 message: "Not Found"
+                            })];
+                        }
+                        if (response.length <= 0) {
+                            return [2 /*return*/, res.status(404).send({
+                                success: false,
+                                errors: {
+                                    message: "Not found any orders"
+                                }
                             })];
                         }
                         return [2 /*return*/, res.status(200).send({

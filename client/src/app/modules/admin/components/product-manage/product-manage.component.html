@@ -2,6 +2,11 @@
   <h1 class="section__title">Product manage</h1>
   <div class="section__products">
     <ul class="section__list">
+      <li class="section__list-element">
+        <a
+          class="section__list-link"
+          routerLink="add-product">Add</a>
+      </li>
       <product-element
         (deleteProd)="deleteFromList($event)"
         *ngFor="let product of products; index as i"
