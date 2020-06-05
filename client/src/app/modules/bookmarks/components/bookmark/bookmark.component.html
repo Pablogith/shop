@@ -1,5 +1,11 @@
 <section class="section">
-  <filter-bar></filter-bar>
+  <div class="section__filters">
+    <filter-bar (searchText)="showSearchProducts($event)"></filter-bar>
+    <filter-by-price
+      (getMinPrice)="setMinProductPrice($event)"
+      (getMaxPrice)="setMaxProductPrice($event)">
+    </filter-by-price>
+  </div>
   <h2
     *ngIf="!products || products.length <= 0"
     class="section__empty">

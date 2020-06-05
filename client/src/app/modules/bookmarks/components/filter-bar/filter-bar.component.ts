@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'filter-bar',
@@ -6,11 +6,18 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./filter-bar.component.scss']
 })
 export class FilterBarComponent implements OnInit {
+  @Output()
+  searchText: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  showFilter(event: Event): void {
+    // @ts-ignore
+    this.searchText.emit(event);
   }
 
 }

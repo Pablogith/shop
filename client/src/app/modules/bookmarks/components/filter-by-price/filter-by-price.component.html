@@ -1,0 +1,23 @@
+<div class="bar">
+  <input
+    [(ngModel)]="minPrice"
+    (keyup)="setMinPrice()"
+    id="min"
+    class="bar__input"
+    type="number"
+    min="0"
+    max="5000"
+    step="0.0.1"
+    placeholder="Min price">
+
+  <input
+    [(ngModel)]="maxPrice"
+    (keyup)="setMaxPrice()"
+    class="bar__input"
+    id="max"
+    type="number"
+    min="0"
+    max="5000"
+    step="0.0.1"
+    placeholder="Max price">
+</div>

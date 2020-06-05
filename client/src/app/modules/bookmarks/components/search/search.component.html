@@ -1,3 +1,9 @@
 <div class="search">
-  Search
+  <input
+    [(ngModel)]="searchModel"
+    (keyup)="search()"
+    value=""
+    class="search__input"
+    type="search"
+    placeholder="Search...">
 </div>

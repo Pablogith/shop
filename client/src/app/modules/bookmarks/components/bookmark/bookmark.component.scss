@@ -4,6 +4,11 @@
   width: 100%;
   min-height: calc(100vh - 50px);
 
+  &__filters {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__items {
     box-sizing: border-box;
     width: 100%;
@@ -34,6 +39,10 @@
 
 @media (min-width: 780px) {
   .section {
+
+    &__filters {
+      flex-direction: row;
+    }
 
     &__items {
       padding: 50px;

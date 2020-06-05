@@ -14,7 +14,10 @@ export class BookmarkComponent implements OnInit {
 
   bookmark: string;
 
-  products: Array<IProduct> = [];
+  products: IProduct[];
+  productsCopy: IProduct[];
+
+  productsNames: string[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,9 +29,12 @@ export class BookmarkComponent implements OnInit {
       this.bookmark = params.bookmark;
 
       this.apiService.getAllProductsFromCategory(this.bookmark).subscribe(
-        (response: Array<IProduct>) => {
+        (response: IProduct[]) => {
+          // @ts-ignore
+          this.productsCopy = response.data;
           // @ts-ignore
           this.products = response.data;
+          this.productsNames = this.products.map(prod => prod.name.toLowerCase());
         },
         error => {
           console.log(error);
@@ -36,4 +42,19 @@ export class BookmarkComponent implements OnInit {
     });
   }
 
+  showSearchProducts(event: Event): void {
+    // @ts-ignore
+    const matches = this.productsNames.filter(name => name.includes(event.toLowerCase()));
+    this.products = this.productsCopy.filter(prod => matches.includes(prod.name));
+  }
+
+  setMinProductPrice(event: Event): void {
+    // @ts-ignore
+    this.products = this.productsCopy.filter(prod => prod.price > event);
+  }
+
+  setMaxProductPrice(event: Event): void {
+    // @ts-ignore
+    this.products = this.productsCopy.filter(prod => prod.price < event);
+  }
 }
