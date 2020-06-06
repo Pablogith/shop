@@ -3,6 +3,7 @@ import express from 'express';
 import ProductController from "../controllers/ProductController";
 import {productValidations} from "../../helpers/productValidations";
 
+
 const router: any = express.Router();
 
 router.get('/products/:category', ProductController.getAllProductsFromCategory);

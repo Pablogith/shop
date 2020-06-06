@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, AbstractControl} from "@angular/forms";
+import {BasketService} from "../../../../core/services/basket/basket.service";
+import {OrdersService} from "../../../../core/http/orders/orders.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'basket-summary',
@@ -9,6 +13,7 @@ import {FormGroup, FormControl, Validators, AbstractControl} from "@angular/form
 export class BasketSummaryComponent implements OnInit {
 
   inputChecked: boolean = false;
+  price: number = 0;
 
   order: FormGroup = new FormGroup({
     paymentMethod: new FormControl('', [
@@ -43,10 +48,17 @@ export class BasketSummaryComponent implements OnInit {
     ])
   });
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private ordersService: OrdersService,
+    private basketService: BasketService) {
   }
 
   ngOnInit(): void {
+    this.basketService.basketElements.forEach(element => this.price += element.price);
+    this.price.toFixed(2);
+    console.log(this.price);
   }
 
   changeChecked(event: Event): void {
@@ -61,7 +73,39 @@ export class BasketSummaryComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.order);
+    const basket: object = JSON.parse(JSON.stringify(this.order.value));
+    const basketElements: object[] = [];
+
+    for (let prod of this.basketService.basketElements) {
+      basketElements.push({
+        productId: prod._id,
+        amount: prod.amount
+      });
+    }
+
+    basket["products"] = basketElements;
+    basket["price"] = this.price;
+
+    this.ordersService.createOrder(basket).subscribe(
+      result => {
+        if (result.success == true) {
+          console.log('Everything is good');
+          this.router.navigate(['basket/success']).then(() => {
+            this.basketService.resetBasket();
+          });
+        } else {
+          console.log(result);
+        }
+      },
+      error => {
+        this.snackBar.open('Something went wrong', 'OK', {
+          duration: 10000,
+          verticalPosition: 'top',
+          panelClass: ['snackBar--failed']
+        });
+        console.log(error);
+      }
+    );
   }
 
   get paymentMethod(): AbstractControl {

@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", {value: true});
 exports.ProductsModel = exports.OrderModel = void 0;
 var mongoose_1 = __importStar(require("mongoose"));
 var ProductsSchema = new mongoose_1.Schema({
-    products: {
+    productId: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'Product',
     },
@@ -67,10 +67,18 @@ var OrderSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    products: {
+    products: [{
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'ProductOrder'
+    }],
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    },
+    price: {
+        type: Number,
+        required: true
     }
 });
-var OrderModel = mongoose_1.default.model('IOrder', OrderSchema);
+var OrderModel = mongoose_1.default.model('Order', OrderSchema);
 exports.OrderModel = OrderModel;

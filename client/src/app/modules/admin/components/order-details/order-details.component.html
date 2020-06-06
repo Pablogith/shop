@@ -1,0 +1,57 @@
+<section class="section">
+  <div class="section__wrapper">
+    <h3 class="section__key">Name:</h3>
+    <p class="section__value">{{name}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Surname:</h3>
+    <p class="section__value">{{surname}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Email:</h3>
+    <p class="section__value">{{email}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Home number:</h3>
+    <p class="section__value">{{homeNumber}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Place:</h3>
+    <p class="section__value">{{place}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Street:</h3>
+    <p>{{street}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Payment method:</h3>
+    <p class="section__value">{{paymentMethod}}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Products:</h3>
+    <div class="section__wrapper section__wrapper--prod">
+      <ul class="prods__list">
+        <li
+          *ngFor="let orderProd of orderProducts"
+          class="prods__element">
+          <h4 class="prods__title">Name:
+            <a
+              target="_blank"
+              [routerLink]="['/bookmark/sth', orderProd.productId]">
+              {{orderProd.productId}}
+            </a>
+          </h4>
+          <h4>Amount: {{orderProd.amount}}</h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Created at:</h3>
+    <p class="section__value">{{createdAt | date:'M/d/y,   h:mm:ss a' }}</p>
+  </div>
+  <div class="section__wrapper">
+    <h3 class="section__key">Price:</h3>
+    <p class="section__value">{{price}} PLN</p>
+  </div>
+</section>

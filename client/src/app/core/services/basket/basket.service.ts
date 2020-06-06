@@ -14,7 +14,7 @@ export class BasketService {
   private getItemIndex(itemId: string): number {
     return this._basketElements.findIndex((item: IProductInformation) => item._id === itemId);
   }
-  
+
   addToBasket(newItem: IProductInformation): void {
     const isUnique: boolean = this._basketElements.every((item: IProductInformation) => item._id !== newItem._id);
 
@@ -57,5 +57,9 @@ export class BasketService {
 
   get basketElements(): Basket {
     return this._basketElements;
+  }
+
+  resetBasket(): void {
+    this._basketElements = [];
   }
 }

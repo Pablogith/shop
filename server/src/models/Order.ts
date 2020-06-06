@@ -1,7 +1,7 @@
 import mongoose, {Schema} from 'mongoose';
 
 const ProductsSchema = new Schema({
-    products: {
+    productId: {
         type: Schema.Types.ObjectId,
         ref: 'Product',
     },
@@ -43,12 +43,20 @@ const OrderSchema = new Schema({
         type: String,
         required: true
     },
-    products: {
+    products: [{
         type: Schema.Types.ObjectId,
         ref: 'ProductOrder'
+    }],
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    },
+    price: {
+        type: Number,
+        required: true
     }
 });
 
-const OrderModel = mongoose.model<mongoose.Document>('IOrder', OrderSchema);
+const OrderModel = mongoose.model<mongoose.Document>('Order', OrderSchema);
 
 export {OrderModel, ProductsModel};

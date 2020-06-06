@@ -5,6 +5,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
+
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -106,94 +107,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         return {value: op[0] ? op[1] : void 0, done: true};
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : {"default": mod};
-};
 Object.defineProperty(exports, "__esModule", {value: true});
 var Order_1 = require("../models/Order");
-var mongoose_1 = __importDefault(require("mongoose"));
-var OrderService = /** @class */ (function () {
-    function OrderService() {
+var OrderProductService = /** @class */ (function () {
+    function OrderProductService() {
     }
 
-    OrderService.addOrder = function (order) {
+    OrderProductService.getProductFromOrder = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var length_1, i, _productOrder, _a, _b, _order, error_1;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0:
-                        _c.trys.push([0, 6, , 7]);
-                        length_1 = order.products.length;
-                        i = 0;
-                        _c.label = 1;
-                    case 1:
-                        if (!(i < length_1)) return [3 /*break*/, 4];
-                        order.products[i].productId = mongoose_1.default.Types.ObjectId(order.products[i].productId);
-                        _productOrder = new Order_1.ProductsModel(order.products[i]);
-                        _a = order.products;
-                        _b = i;
-                        return [4 /*yield*/, _productOrder.save()];
-                    case 2:
-                        _a[_b] = _c.sent();
-                        _c.label = 3;
-                    case 3:
-                        i++;
-                        return [3 /*break*/, 1];
-                    case 4:
-                        _order = new Order_1.OrderModel(order);
-                        return [4 /*yield*/, _order.save()];
-                    case 5:
-                        return [2 /*return*/, _c.sent()];
-                    case 6:
-                        error_1 = _c.sent();
-                        return [2 /*return*/, error_1];
-                    case 7:
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OrderService.getAllOrders = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var error_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.OrderModel.find()];
-                    case 1:
-                        return [2 /*return*/, _a.sent()];
-                    case 2:
-                        error_2 = _a.sent();
-                        return [2 /*return*/, error_2];
-                    case 3:
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OrderService.getOrder = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var error_3;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.OrderModel.findById(id)];
-                    case 1:
-                        return [2 /*return*/, _a.sent()];
-                    case 2:
-                        error_3 = _a.sent();
-                        return [2 /*return*/, error_3];
-                    case 3:
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OrderService.getProductOrder = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            var error_4;
+            var error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -202,14 +124,14 @@ var OrderService = /** @class */ (function () {
                     case 1:
                         return [2 /*return*/, _a.sent()];
                     case 2:
-                        error_4 = _a.sent();
-                        return [2 /*return*/, error_4];
+                        error_1 = _a.sent();
+                        return [2 /*return*/, error_1];
                     case 3:
                         return [2 /*return*/];
                 }
             });
         });
     };
-    return OrderService;
+    return OrderProductService;
 }());
-exports.default = OrderService;
+exports.default = OrderProductService;

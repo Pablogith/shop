@@ -1,3 +1,10 @@
 <section class="section">
-  <h1>{{order.name}}</h1>
+  <h1>
+    {{order.createdAt | date:'medium'}}
+  </h1>
+  <a
+    class="section__link"
+    [routerLink]="[order._id]">
+    More...
+  </a>
 </section>

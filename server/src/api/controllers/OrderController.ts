@@ -12,22 +12,15 @@ export default class OrderController {
                 homeNumber: req.body.homeNumber,
                 place: req.body.place,
                 paymentMethod: req.body.paymentMethod,
-                products: undefined
-            };
-
-            const orderProduct = {
-                products: req.body.product,
-                amount: req.body.amount
+                products: req.body.products,
+                price: req.body.price,
             };
 
             const orderDataArray = new Array(order);
             const orderDataIsGood: boolean = orderDataArray.every(value => !!value);
 
-            const productDataArray = new Array(orderProduct);
-            const productDataIsGood: boolean = productDataArray.every(value => !!value);
-
-            if (orderDataIsGood && productDataIsGood) {
-                const response = await OrderService.addOrder(order, orderProduct);
+            if (orderDataIsGood) {
+                const response = await OrderService.addOrder(order);
 
                 if (!response) {
                     return res.status(404).send({
@@ -101,19 +94,6 @@ export default class OrderController {
                     message: 'Invalid request'
                 });
             }
-
-            const prodId = response.products;
-            const prodResponse = await OrderService.getProductOrder(prodId);
-
-            if (!prodResponse) {
-                return res.status(400).send({
-                    success: false,
-                    status: 400,
-                    message: 'Invalid request'
-                });
-            }
-
-            response.products = prodResponse;
 
             return res.status(200).send({
                 success: true,

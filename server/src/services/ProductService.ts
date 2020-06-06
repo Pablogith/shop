@@ -1,6 +1,8 @@
 import express from 'express';
 import {ProductModel} from "../models/Product";
 import IProduct from "../models/IProduct";
+import * as fs from "fs";
+
 
 export default class ProductService {
     static async getAllProductsFromCategory(category: string): Promise<any> {

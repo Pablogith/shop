@@ -13,7 +13,6 @@ export class OrdersElementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.order);
   }
 
 }

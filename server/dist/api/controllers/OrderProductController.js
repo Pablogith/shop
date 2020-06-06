@@ -5,6 +5,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
+
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -110,115 +111,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : {"default": mod};
 };
 Object.defineProperty(exports, "__esModule", {value: true});
-var OrderService_1 = __importDefault(require("../../services/OrderService"));
-var OrderController = /** @class */ (function () {
-    function OrderController() {
+var OrderProductService_1 = __importDefault(require("../../services/OrderProductService"));
+var OrderProductController = /** @class */ (function () {
+    function OrderProductController() {
     }
-    OrderController.createOrder = function (req, res) {
+
+    OrderProductController.getProductOrder = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var order, orderDataArray, orderDataIsGood, response, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        order = {
-                            name: req.body.name,
-                            surname: req.body.surname,
-                            email: req.body.email,
-                            street: req.body.street,
-                            homeNumber: req.body.homeNumber,
-                            place: req.body.place,
-                            paymentMethod: req.body.paymentMethod,
-                            products: req.body.products,
-                            price: req.body.price,
-                        };
-                        orderDataArray = new Array(order);
-                        orderDataIsGood = orderDataArray.every(function (value) {
-                            return !!value;
-                        });
-                        if (!orderDataIsGood) return [3 /*break*/, 2];
-                        return [4 /*yield*/, OrderService_1.default.addOrder(order)];
-                    case 1:
-                        response = _a.sent();
-                        if (!response) {
-                            return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: 'IOrder not found'
-                            })];
-                        }
-                        return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
-                    case 2:
-                        return [2 /*return*/, res.status(400).send({
-                            success: false,
-                            status: 400,
-                            message: 'Invalid request'
-                        })];
-                    case 3:
-                        error_1 = _a.sent();
-                        return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_1
-                        })];
-                    case 4:
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OrderController.getAllOrders = function (req, res) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response, error_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, OrderService_1.default.getAllOrders()];
-                    case 1:
-                        response = _a.sent();
-                        if (!response) {
-                            return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: "Not Found"
-                            })];
-                        }
-                        if (response.length <= 0) {
-                            return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                errors: {
-                                    message: "Not found any orders"
-                                }
-                            })];
-                        }
-                        return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
-                    case 2:
-                        error_2 = _a.sent();
-                        return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_2
-                        })];
-                    case 3:
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OrderController.getOrder = function (req, res) {
-        return __awaiter(this, void 0, void 0, function () {
-            var id, response, error_3;
+            var id, response, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         id = req.params.id;
-                        return [4 /*yield*/, OrderService_1.default.getOrder(id)];
+                        return [4 /*yield*/, OrderProductService_1.default.getProductFromOrder(id)];
                     case 1:
                         response = _a.sent();
                         if (!response) {
@@ -233,10 +139,10 @@ var OrderController = /** @class */ (function () {
                             data: response
                         })];
                     case 2:
-                        error_3 = _a.sent();
+                        error_1 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
                             success: false,
-                            message: error_3
+                            message: error_1
                         })];
                     case 3:
                         return [2 /*return*/];
@@ -244,6 +150,6 @@ var OrderController = /** @class */ (function () {
             });
         });
     };
-    return OrderController;
+    return OrderProductController;
 }());
-exports.default = OrderController;
+exports.default = OrderProductController;

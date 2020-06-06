@@ -1,12 +1,16 @@
 import {OrderModel, ProductsModel} from "../models/Order";
+import mongoose from 'mongoose';
 
 export default class OrderService {
-    static async addOrder(order: any, product: any): Promise<any> {
+    static async addOrder(order: any): Promise<any> {
         try {
-            const _productOrder = new ProductsModel(product);
-            const _product = await _productOrder.save();
+            let length = order.products.length;
 
-            order.products = _product._id;
+            for (let i = 0; i < length; i++) {
+                order.products[i].productId = mongoose.Types.ObjectId(order.products[i].productId);
+                const _productOrder = new ProductsModel(order.products[i]);
+                order.products[i] = await _productOrder.save();
+            }
 
             const _order = new OrderModel(order);
             return await _order.save();

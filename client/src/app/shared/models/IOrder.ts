@@ -9,4 +9,7 @@ export interface IOrder {
   products: any;
   __v?: number;
   _id: string;
+  createdAt: string;
+  price?: number;
+  productId?: string;
 }

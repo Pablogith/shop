@@ -10,6 +10,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {ProductEditComponent} from './components/product-edit/product-edit.component';
 import {ProductAddComponent} from "./components/product-add/product-add.component";
 import {OrdersElementComponent} from './components/orders-element/orders-element.component';
+import {OrderDetailsComponent} from './components/order-details/order-details.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {OrdersElementComponent} from './components/orders-element/orders-element
     ProductElementComponent,
     ProductEditComponent,
     ProductAddComponent,
-    OrdersElementComponent
+    OrdersElementComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,

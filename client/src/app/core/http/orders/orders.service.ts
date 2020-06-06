@@ -10,12 +10,34 @@ import {handleError} from "../handleError";
 export class OrdersService {
 
   private _url: string = 'http://localhost:3000/orders';
+  private _urlProd: string = 'http://localhost:3000/basketProduct';
 
   constructor(private http: HttpClient) {
   }
 
   getAllOrders(): Observable<any> {
     return this.http.get(this._url)
+      .pipe(
+        catchError(handleError)
+      );
+  }
+
+  getOrder(id: string): Observable<any> {
+    return this.http.get(`${this._url}/${id}`)
+      .pipe(
+        catchError(handleError)
+      );
+  }
+
+  createOrder(order: object): Observable<any> {
+    return this.http.post(this._url, order)
+      .pipe(
+        catchError(handleError)
+      );
+  }
+
+  getProductFromOrder(id: string): Observable<any> {
+    return this.http.get(`${this._urlProd}/${id}`)
       .pipe(
         catchError(handleError)
       );

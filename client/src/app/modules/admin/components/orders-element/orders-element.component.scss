@@ -1,0 +1,28 @@
+@import "../../../../../assets/scss/base";
+
+.section {
+  width: 90%;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+  margin-bottom: 30px;
+  padding: 10px;
+
+  &__link,
+  &__link:visited,
+  &__link:active {
+    color: $main-color;
+    text-decoration: none;
+    font-weight: 700;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 780px) {
+  .section {
+    max-width: 600px;
+  }
+}

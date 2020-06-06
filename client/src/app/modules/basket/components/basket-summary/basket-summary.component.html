@@ -84,7 +84,7 @@
         class="form__button"
         type="submit"
         [disabled]="order.invalid || !inputChecked">
-        Checkout
+        Checkout <span class="form__button--price"> {{price}} </span> PLN
       </button>
     </div>
   </form>

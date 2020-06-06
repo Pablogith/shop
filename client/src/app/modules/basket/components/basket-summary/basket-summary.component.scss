@@ -97,7 +97,7 @@
     }
 
     &__button {
-      width: 60%;
+      width: 100%;
       height: 40px;
       background-color: $main-color;
       color: white;
@@ -111,6 +111,12 @@
       outline: none;
       transition: all .3s ease-in-out;
       margin: 0 auto;
+
+      &--price {
+        font-weight: 700;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
 
       &:hover {
         box-shadow: 0 6px 13px rgba(0, 213, 100, .5);
@@ -128,6 +134,18 @@
       }
     }
   }
+}
+
+::ng-deep .snackBar--success {
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+}
+
+::ng-deep .snackBar--failed {
+  background-color: rgb(238, 89, 89);
+  color: white;
+  font-weight: 700;
 }
 
 @media (min-width: 770px) {
@@ -149,6 +167,7 @@
       &__button {
         margin-right: 0;
         margin-top: 10px;
+        width: 320px;
       }
     }
   }

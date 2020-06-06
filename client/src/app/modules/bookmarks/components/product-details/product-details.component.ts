@@ -57,7 +57,8 @@ export class ProductDetailsComponent implements OnInit {
     const product: IProductInformation = {
       _id: this.product._id,
       category: this.product.category,
-      amount: this._counter
+      amount: this._counter,
+      price: this.product.price * this._counter
     };
 
     this.basketService.addToBasket(product);

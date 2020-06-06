@@ -40,7 +40,8 @@ export class ItemComponent implements OnInit {
     const newItem: IProductInformation = {
       _id: id,
       category: this.productData.category,
-      amount: 1
+      amount: 1,
+      price: this.price
     };
 
     this.basketService.addToBasket(newItem);

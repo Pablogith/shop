@@ -6,8 +6,10 @@ Object.defineProperty(exports, "__esModule", {value: true});
 var app_1 = __importDefault(require("./app"));
 var productRoutes_1 = require("./api/routes/productRoutes");
 var orderRoutes_1 = require("./api/routes/orderRoutes");
+var orderProductRoutes_1 = require("./api/routes/orderProductRoutes");
 var app = new app_1.default([
     productRoutes_1.router,
-    orderRoutes_1.router
+    orderRoutes_1.router,
+    orderProductRoutes_1.router
 ], 3000);
 app.listen();
