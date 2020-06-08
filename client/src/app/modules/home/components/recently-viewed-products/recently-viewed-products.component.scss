@@ -1,0 +1,36 @@
+.section {
+  width: 100%;
+  height: 120px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0 0 0 15px;
+  list-style: none;
+  border-top: 2px solid black;
+
+  &__text {
+    margin: 0;
+  }
+
+  &__link {
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__product {
+    height: 100%;
+    width: 150px;
+    box-sizing: border-box;
+    margin-right: 15px;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+}

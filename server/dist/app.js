@@ -36,9 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : {"default": mod};
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var body_parser_1 = __importDefault(require("body-parser"));
 // @ts-ignore
@@ -52,14 +52,14 @@ var App = /** @class */ (function () {
         this.controllers = controllers;
         this.port = port;
         this.app = express_1.default();
-        this.port = port;
+        this.port = port || process.env.PORT;
         this.setCors();
         this.initializeMiddleware();
         this.initializeControllers();
     }
     App.prototype.initializeMiddleware = function () {
         this.app.use(body_parser_1.default.json());
-        this.app.use(body_parser_1.default.urlencoded({extended: false}));
+        this.app.use(body_parser_1.default.urlencoded({ extended: false }));
         this.app.use(cookie_parser_1.default());
     };
     App.prototype.initializeControllers = function () {
@@ -67,7 +67,7 @@ var App = /** @class */ (function () {
         this.controllers.forEach(function (controller) {
             _this.app.use(controller);
         });
-        this.app.use(function (err, req, res, next) {
+        this.app.use(function (err, req, res) {
             ErrorHandling_1.handleError(err, res);
         });
     };
@@ -101,8 +101,7 @@ var App = /** @class */ (function () {
                         error_1 = _a.sent();
                         console.log(error_1);
                         return [3 /*break*/, 3];
-                    case 3:
-                        return [2 /*return*/];
+                    case 3: return [2 /*return*/];
                 }
             });
         });

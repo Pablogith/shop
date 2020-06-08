@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {IProduct} from "../../../../shared/models/IProduct";
 import {ApiService} from "../../../../core/http/api/api.service";
 
+import {sortMethodType} from "../sort-products/sort-products.component";
+
 
 @Component({
   selector: 'bookmark',
@@ -56,5 +58,38 @@ export class BookmarkComponent implements OnInit {
   setMaxProductPrice(event: Event): void {
     // @ts-ignore
     this.products = this.productsCopy.filter(prod => prod.price < event);
+  }
+
+  setSortMethod(event: any): void {
+    const sortMethod: sortMethodType = event;
+    switch (sortMethod) {
+      case sortMethodType.pricesAscending:
+          this.sortByPricesAscending();
+        break;
+
+      case sortMethodType.pricesDecreasing:
+        this.sortByPricesDecreasing();
+        break;
+
+      case sortMethodType.newest:
+        this.sortByNewest();
+        break;
+    }
+  }
+
+  sortByPricesAscending(): void {
+    this.products.sort((a: IProduct, b: IProduct) => a.price - b.price);
+  }
+
+  sortByPricesDecreasing(): void {
+    this.products.sort((a: IProduct, b: IProduct) => b.price - a.price);
+  }
+
+  sortByNewest(): void {
+    this.products.sort((a: IProduct, b: IProduct) => {
+      console.log(new Date(a.createdAt));
+      console.log(new Date(b.createdAt));
+      return Math.abs(new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    });
   }
 }

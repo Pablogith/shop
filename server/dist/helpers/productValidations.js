@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.productValidations = void 0;
 var express_validator_1 = require("express-validator");
 var productValidations;
@@ -22,7 +22,7 @@ var productValidations;
             .trim()
             .not().isEmpty()
             .withMessage('Name is required')
-            .isLength({min: 3, max: 20})
+            .isLength({ min: 3, max: 20 })
             .withMessage('Name must be at least 3 characters long and less than 20 characters'),
         express_validator_1.check('category')
             .trim()
@@ -35,7 +35,7 @@ var productValidations;
             .trim()
             .not().isEmpty()
             .withMessage('Description is required')
-            .isLength({min: 3, max: 320})
+            .isLength({ min: 3, max: 320 })
             .withMessage('Description must be at least 3 characters long and less than 320 characters')
     ];
     function checkAddValidation(req, res, next) {

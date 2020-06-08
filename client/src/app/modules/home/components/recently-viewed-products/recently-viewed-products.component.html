@@ -1,0 +1,23 @@
+<ng-template
+  [ngIf]="recentlyProducts.length > 0"
+  [ngIfElse]="historyIsEmpty">
+  <ul class="section">
+    <li
+      *ngFor="let product of recentlyProducts"
+      class="section__product">
+      <a
+        class="section__link"
+        [routerLink]="['/bookmark/sth', product.id]">
+        <img
+          class="section__image"
+          src="{{product.imageUrl}}"
+          alt="Recently viewed product">
+      </a>
+    </li>
+  </ul>
+</ng-template>
+<ng-template #historyIsEmpty>
+  <div class="section">
+    <h2 class="section__text">History are empty...</h2>
+  </div>
+</ng-template>

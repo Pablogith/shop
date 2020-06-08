@@ -13,9 +13,9 @@ import {handleError} from "./services/ErrorHandling";
 export default class App {
     public app: express.Application;
 
-    constructor(public controllers: any[], public port: number) {
+    constructor(public controllers: any[], public port: any) {
         this.app = express();
-        this.port = port;
+        this.port = port || process.env.PORT;
 
         this.setCors();
         this.initializeMiddleware();
@@ -32,7 +32,7 @@ export default class App {
         this.controllers.forEach((controller) => {
             this.app.use(controller);
         });
-        this.app.use((err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) => {
+        this.app.use((err: express.Errback, req: express.Request, res: express.Response) => {
             handleError(err, res);
         });
     }

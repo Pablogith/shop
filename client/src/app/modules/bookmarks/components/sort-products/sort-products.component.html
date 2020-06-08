@@ -1,0 +1,13 @@
+<div class="bar">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select
+      (selectionChange)="setCurrentSortMethod({event : $event})">
+      <mat-option
+        *ngFor="let sort of sortMethods"
+        [value]="sort.value">
+        {{sort.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

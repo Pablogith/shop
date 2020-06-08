@@ -8,6 +8,7 @@ import {ProductDetailsComponent} from './components/product-details/product-deta
 import {FilterBarComponent} from './components/filter-bar/filter-bar.component';
 import {SearchComponent} from './components/search/search.component';
 import {FilterByPriceComponent} from './components/filter-by-price/filter-by-price.component';
+import { SortProductsComponent } from './components/sort-products/sort-products.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FilterByPriceComponent} from './components/filter-by-price/filter-by-pri
     ProductDetailsComponent,
     FilterBarComponent,
     SearchComponent,
-    FilterByPriceComponent
+    FilterByPriceComponent,
+    SortProductsComponent
   ],
   imports: [
     BookmarksRoutingModule,

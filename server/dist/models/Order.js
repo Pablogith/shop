@@ -1,18 +1,14 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function (o, m, k, k2) {
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, {
-        enumerable: true, get: function () {
-            return m[k];
-        }
-    });
-}) : (function (o, m, k, k2) {
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function (o, v) {
-    Object.defineProperty(o, "default", {enumerable: true, value: v});
-}) : function (o, v) {
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
     o["default"] = v;
 });
 var __importStar = (this && this.__importStar) || function (mod) {
@@ -22,7 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsModel = exports.OrderModel = void 0;
 var mongoose_1 = __importStar(require("mongoose"));
 var ProductsSchema = new mongoose_1.Schema({
@@ -68,9 +64,9 @@ var OrderSchema = new mongoose_1.Schema({
         required: true
     },
     products: [{
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'ProductOrder'
-    }],
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: 'ProductOrder'
+        }],
     createdAt: {
         type: Date,
         default: Date.now()

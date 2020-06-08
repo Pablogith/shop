@@ -7,6 +7,7 @@ import {IProductInformation} from "../../../../shared/models/IBasket";
 import {ApiService} from "../../../../core/http/api/api.service";
 import {BasketService} from "../../../../core/services/basket/basket.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {RecentlyViewedProductsService} from "../../../../core/services/recentlyViewedProducts/recently-viewed-products.service";
 
 @Component({
   selector: 'bookmark-item-details',
@@ -24,6 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   });
 
   constructor(
+    private recentlyViewedProductsService: RecentlyViewedProductsService,
     private snackBar: MatSnackBar,
     private basketService: BasketService,
     private activatedRoute: ActivatedRoute,
@@ -45,10 +47,15 @@ export class ProductDetailsComponent implements OnInit {
       (response: Object) => {
         // @ts-ignore
         this.product = response.data;
+        this.recentlyViewedProductsService.addRecentlyViewedProducts({
+          id: this.productId,
+          imageUrl: this.product.image
+        });
       },
       error => {
-        console.log(error);
-      });
+        console.log(error)
+      }
+    );
 
     this.counter.disable();
   }

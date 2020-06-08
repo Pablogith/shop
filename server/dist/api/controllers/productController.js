@@ -56,23 +56,22 @@ var ProductController = /** @class */ (function () {
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: "Not Found"
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: "Not Found"
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
+                                success: true,
+                                data: response
+                            })];
                     case 2:
                         error_1 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_1
-                        })];
-                    case 3:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_1
+                            })];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -89,23 +88,22 @@ var ProductController = /** @class */ (function () {
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: "Not Found"
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: "Not Found"
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
+                                success: true,
+                                data: response
+                            })];
                     case 2:
                         error_2 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_2
-                        })];
-                    case 3:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_2
+                            })];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -123,23 +121,22 @@ var ProductController = /** @class */ (function () {
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: "Not Found"
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: "Not Found"
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
+                                success: true,
+                                data: response
+                            })];
                     case 2:
                         error_3 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_3
-                        })];
-                    case 3:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_3
+                            })];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -152,33 +149,30 @@ var ProductController = /** @class */ (function () {
                     case 0:
                         _b.trys.push([0, 3, , 4]);
                         _a = req.body, name_1 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency;
-                        isGood = [name_1, price, category, description, image].every(function (value) {
-                            return !!value;
-                        });
+                        isGood = [name_1, price, category, description, image].every(function (value) { return !!value; });
                         if (!isGood) return [3 /*break*/, 2];
                         return [4 /*yield*/, ProductService_1.default.addProduct({
-                            name: name_1,
-                            price: price,
-                            category: category,
-                            description: description,
-                            image: image,
-                            currency: currency
-                        })];
+                                name: name_1,
+                                price: price,
+                                category: category,
+                                description: description,
+                                image: image,
+                                currency: currency
+                            })];
                     case 1:
                         response = _b.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: 'Product not found'
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: 'Product not found'
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
-                    case 2:
-                        return [2 /*return*/, res.status(400).send({
+                                success: true,
+                                data: response
+                            })];
+                    case 2: return [2 /*return*/, res.status(400).send({
                             success: false,
                             status: 400,
                             message: 'Invalid request'
@@ -186,11 +180,10 @@ var ProductController = /** @class */ (function () {
                     case 3:
                         error_4 = _b.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_4
-                        })];
-                    case 4:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_4
+                            })];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -208,23 +201,22 @@ var ProductController = /** @class */ (function () {
                         response = _a.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: "Not Found"
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: "Not Found"
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
+                                success: true,
+                                data: response
+                            })];
                     case 2:
                         error_5 = _a.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_5
-                        })];
-                    case 3:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_5
+                            })];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -238,33 +230,30 @@ var ProductController = /** @class */ (function () {
                         _b.trys.push([0, 3, , 4]);
                         id = req.params.id;
                         _a = req.body, name_2 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency;
-                        isGood = [name_2, price, category, description, image].every(function (value) {
-                            return !!value;
-                        });
+                        isGood = [name_2, price, category, description, image].every(function (value) { return !!value; });
                         if (!isGood) return [3 /*break*/, 2];
                         return [4 /*yield*/, ProductService_1.default.editProduct(id, {
-                            name: name_2,
-                            price: price,
-                            category: category,
-                            description: description,
-                            image: image,
-                            currency: currency
-                        })];
+                                name: name_2,
+                                price: price,
+                                category: category,
+                                description: description,
+                                image: image,
+                                currency: currency
+                            })];
                     case 1:
                         response = _b.sent();
                         if (!response) {
                             return [2 /*return*/, res.status(404).send({
-                                success: false,
-                                status: 404,
-                                message: 'Product not found'
-                            })];
+                                    success: false,
+                                    status: 404,
+                                    message: 'Product not found'
+                                })];
                         }
                         return [2 /*return*/, res.status(200).send({
-                            success: true,
-                            data: response
-                        })];
-                    case 2:
-                        return [2 /*return*/, res.status(400).send({
+                                success: true,
+                                data: response
+                            })];
+                    case 2: return [2 /*return*/, res.status(400).send({
                             success: false,
                             status: 400,
                             message: 'Invalid request'
@@ -272,11 +261,10 @@ var ProductController = /** @class */ (function () {
                     case 3:
                         error_6 = _b.sent();
                         return [2 /*return*/, res.status(500).send({
-                            success: false,
-                            message: error_6
-                        })];
-                    case 4:
-                        return [2 /*return*/];
+                                success: false,
+                                message: error_6
+                            })];
+                    case 4: return [2 /*return*/];
                 }
             });
         });

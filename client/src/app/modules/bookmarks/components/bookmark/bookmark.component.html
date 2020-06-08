@@ -5,6 +5,8 @@
       (getMinPrice)="setMinProductPrice($event)"
       (getMaxPrice)="setMaxProductPrice($event)">
     </filter-by-price>
+    <sort-products (sortMethod)="setSortMethod($event)">
+    </sort-products>
   </div>
   <h2
     *ngIf="!products || products.length <= 0"

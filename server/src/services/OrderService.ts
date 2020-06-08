@@ -1,6 +1,10 @@
 import {OrderModel, ProductsModel} from "../models/Order";
 import mongoose from 'mongoose';
 
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey('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');
+
+
 export default class OrderService {
     static async addOrder(order: any): Promise<any> {
         try {
@@ -13,6 +17,14 @@ export default class OrderService {
             }
 
             const _order = new OrderModel(order);
+            const msg = {
+                to: order.email,
+                from: 'practiceshop@gmail.com',
+                subject: 'Order',
+                text: '',
+                html: `<h1>Thanks ${order.name} for shopping in our store :)</h1>`
+            };
+            await sgMail.send(msg);
             return await _order.save();
         } catch (error) {
             return error;
