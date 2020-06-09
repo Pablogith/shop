@@ -36,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productValidation = void 0;
-var Product_1 = require("../models/Product");
+var ProductSchema_1 = require("../models/Schemas/ProductSchema");
 var ProductService = /** @class */ (function () {
     function ProductService() {
     }
@@ -48,7 +47,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Product_1.ProductModel.find({ category: category })];
+                        return [4 /*yield*/, ProductSchema_1.ProductModel.find({ category: category })];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_1 = _a.sent();
@@ -65,7 +64,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Product_1.ProductModel.find()];
+                        return [4 /*yield*/, ProductSchema_1.ProductModel.find()];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_2 = _a.sent();
@@ -82,7 +81,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Product_1.ProductModel.findById(id)];
+                        return [4 /*yield*/, ProductSchema_1.ProductModel.findById(id)];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_3 = _a.sent();
@@ -99,7 +98,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        _product = new Product_1.ProductModel(product);
+                        _product = new ProductSchema_1.ProductModel(product);
                         return [4 /*yield*/, _product.save()];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
@@ -117,7 +116,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Product_1.ProductModel.findByIdAndDelete(id)];
+                        return [4 /*yield*/, ProductSchema_1.ProductModel.findByIdAndDelete(id)];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_5 = _a.sent();
@@ -134,7 +133,7 @@ var ProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Product_1.ProductModel.updateOne({ _id: id }, {
+                        return [4 /*yield*/, ProductSchema_1.ProductModel.updateOne({ _id: id }, {
                                 $set: {
                                     name: product.name,
                                     price: product.price,
@@ -156,6 +155,3 @@ var ProductService = /** @class */ (function () {
     return ProductService;
 }());
 exports.default = ProductService;
-function productValidation(req, res) {
-}
-exports.productValidation = productValidation;

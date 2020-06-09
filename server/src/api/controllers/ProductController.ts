@@ -79,7 +79,7 @@ export default class ProductController {
 
     static async createProduct(req: express.Request, res: express.Response): Promise<express.Response> {
         try {
-            const {name, price, category, description, image, currency} = req.body;
+            const {name, price, category, description, image, currency, comments} = req.body;
 
             const isGood: boolean = [name, price, category, description, image].every(value => !!value);
 
@@ -90,7 +90,8 @@ export default class ProductController {
                     category,
                     description,
                     image,
-                    currency
+                    currency,
+                    comments
                 });
 
                 if (!response) {
@@ -191,3 +192,4 @@ export default class ProductController {
         }
     }
 }
+

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Order_1 = require("../models/Order");
+var OrderSchema_1 = require("../models/Schemas/OrderSchema");
 var OrderProductService = /** @class */ (function () {
     function OrderProductService() {
     }
@@ -47,7 +47,7 @@ var OrderProductService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.ProductsModel.findById(id)];
+                        return [4 /*yield*/, OrderSchema_1.ProductsModel.findById(id)];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_1 = _a.sent();

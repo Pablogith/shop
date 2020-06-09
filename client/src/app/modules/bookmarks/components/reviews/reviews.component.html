@@ -1,0 +1,16 @@
+<section
+  [class.section--empty]="reviews.length <= 0"
+  class="section">
+  <ng-template
+    [ngIf]="reviews.length > 0"
+    [ngIfElse]="reviewsEmpty">
+    <review
+      *ngFor="let review of reviews"
+      [review]="review">
+    </review>
+  </ng-template>
+
+  <ng-template #reviewsEmpty>
+    <h1>No opinion</h1>
+  </ng-template>
+</section>

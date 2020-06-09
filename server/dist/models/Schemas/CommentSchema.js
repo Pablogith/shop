@@ -19,8 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommentModel = exports.ProductModel = void 0;
-// @ts-ignore
+exports.CommentModel = void 0;
 var mongoose_1 = __importStar(require("mongoose"));
 var CommentSchema = new mongoose_1.Schema({
     author: {
@@ -49,42 +48,3 @@ var CommentSchema = new mongoose_1.Schema({
 });
 var CommentModel = mongoose_1.default.model('Comment', CommentSchema);
 exports.CommentModel = CommentModel;
-var ProductSchema = new mongoose_1.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now(),
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true
-    },
-    category: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    currency: {
-        type: String,
-        required: true,
-        default: 'PLN'
-    },
-    comments: [{
-            type: mongoose_1.Schema.Types.ObjectId,
-            ref: 'Comment'
-        }],
-});
-var ProductModel = mongoose_1.default.model('Product', ProductSchema);
-exports.ProductModel = ProductModel;

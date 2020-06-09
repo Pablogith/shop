@@ -9,6 +9,8 @@ import {FilterBarComponent} from './components/filter-bar/filter-bar.component';
 import {SearchComponent} from './components/search/search.component';
 import {FilterByPriceComponent} from './components/filter-by-price/filter-by-price.component';
 import { SortProductsComponent } from './components/sort-products/sort-products.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { SortProductsComponent } from './components/sort-products/sort-products.
     FilterBarComponent,
     SearchComponent,
     FilterByPriceComponent,
-    SortProductsComponent
+    SortProductsComponent,
+    ReviewsComponent,
+    ReviewComponent
   ],
   imports: [
     BookmarksRoutingModule,

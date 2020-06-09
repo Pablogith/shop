@@ -1,0 +1,19 @@
+.section {
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  box-sizing: border-box;
+  border-top: 2px solid black;
+
+  &--empty {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}

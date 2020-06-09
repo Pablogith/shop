@@ -19,72 +19,62 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommentModel = exports.ProductModel = void 0;
-// @ts-ignore
+exports.ProductsModel = exports.OrderModel = void 0;
 var mongoose_1 = __importStar(require("mongoose"));
-var CommentSchema = new mongoose_1.Schema({
-    author: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        required: true,
-        default: Date.now()
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    rating: {
-        type: Number,
-        required: true,
-        max: 5,
-        min: 0
-    },
+var ProductsSchema = new mongoose_1.Schema({
     productId: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'Product',
     },
+    amount: {
+        type: Number,
+        required: true,
+        default: 1
+    }
 });
-var CommentModel = mongoose_1.default.model('Comment', CommentSchema);
-exports.CommentModel = CommentModel;
-var ProductSchema = new mongoose_1.Schema({
+var ProductsModel = mongoose_1.default.model('ProductOrder', ProductsSchema);
+exports.ProductsModel = ProductsModel;
+var OrderSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true
     },
+    surname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    street: {
+        type: String,
+        required: true
+    },
+    homeNumber: {
+        type: String,
+        required: true
+    },
+    place: {
+        type: String,
+        required: true
+    },
+    paymentMethod: {
+        type: String,
+        required: true
+    },
+    products: [{
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: 'ProductOrder'
+        }],
     createdAt: {
         type: Date,
-        default: Date.now(),
-        required: true,
+        default: Date.now()
     },
     price: {
         type: Number,
         required: true
-    },
-    category: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    currency: {
-        type: String,
-        required: true,
-        default: 'PLN'
-    },
-    comments: [{
-            type: mongoose_1.Schema.Types.ObjectId,
-            ref: 'Comment'
-        }],
+    }
 });
-var ProductModel = mongoose_1.default.model('Product', ProductSchema);
-exports.ProductModel = ProductModel;
+var OrderModel = mongoose_1.default.model('Order', OrderSchema);
+exports.OrderModel = OrderModel;

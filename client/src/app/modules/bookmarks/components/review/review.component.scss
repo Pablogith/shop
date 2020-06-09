@@ -1,0 +1,48 @@
+@import "src/assets/scss/base";
+
+.section {
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &__author {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 5px;
+  }
+
+  &__date {
+    font-size: 1rem;
+    color: rgb(50,50,50);
+    margin: 0 0 5px;
+  }
+
+  &__rating {
+    margin: 0 0 5px;
+  }
+
+  &__content {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
+}
+.filled {
+  color: $main-color;
+}
+
+@media (min-width: 780px) {
+  .section {
+    padding: 30px;
+
+    &__content {
+      max-width: 600px;
+    }
+  }
+}

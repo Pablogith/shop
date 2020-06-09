@@ -11,4 +11,5 @@ export interface IProduct {
   createdAt: string;
   category: string;
   data?: any[];
+  comments?: object[];
 }

@@ -1,7 +1,5 @@
-import express from 'express';
-import {ProductModel} from "../models/Product";
+import {ProductModel} from "../models/Schemas/ProductSchema";
 import IProduct from "../models/IProduct";
-import * as fs from "fs";
 
 
 export default class ProductService {
@@ -32,6 +30,7 @@ export default class ProductService {
     static async addProduct(product: IProduct): Promise<any> {
         try {
             const _product: any = new ProductModel(product);
+
             return await _product.save();
         } catch (error) {
             return error;
@@ -62,8 +61,4 @@ export default class ProductService {
             return error;
         }
     }
-}
-
-export function productValidation(req: express.Request, res: express.Response): void {
-
 }

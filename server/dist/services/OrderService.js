@@ -39,27 +39,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Order_1 = require("../models/Order");
+var OrderSchema_1 = require("../models/Schemas/OrderSchema");
 var mongoose_1 = __importDefault(require("mongoose"));
-var sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
 var OrderService = /** @class */ (function () {
     function OrderService() {
     }
     OrderService.addOrder = function (order) {
         return __awaiter(this, void 0, void 0, function () {
-            var length_1, i, _productOrder, _a, _b, _order, msg, error_1;
+            var length_1, i, _productOrder, _a, _b, _order, error_1;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _c.trys.push([0, 7, , 8]);
+                        _c.trys.push([0, 6, , 7]);
                         length_1 = order.products.length;
                         i = 0;
                         _c.label = 1;
                     case 1:
                         if (!(i < length_1)) return [3 /*break*/, 4];
                         order.products[i].productId = mongoose_1.default.Types.ObjectId(order.products[i].productId);
-                        _productOrder = new Order_1.ProductsModel(order.products[i]);
+                        _productOrder = new OrderSchema_1.ProductsModel(order.products[i]);
                         _a = order.products;
                         _b = i;
                         return [4 /*yield*/, _productOrder.save()];
@@ -70,23 +68,13 @@ var OrderService = /** @class */ (function () {
                         i++;
                         return [3 /*break*/, 1];
                     case 4:
-                        _order = new Order_1.OrderModel(order);
-                        msg = {
-                            to: order.email,
-                            from: 'practiceshop@gmail.com',
-                            subject: 'Order',
-                            text: '',
-                            html: "<h1>Thanks " + order.name + " for shopping in our store :)</h1>"
-                        };
-                        return [4 /*yield*/, sgMail.send(msg)];
-                    case 5:
-                        _c.sent();
+                        _order = new OrderSchema_1.OrderModel(order);
                         return [4 /*yield*/, _order.save()];
-                    case 6: return [2 /*return*/, _c.sent()];
-                    case 7:
+                    case 5: return [2 /*return*/, _c.sent()];
+                    case 6:
                         error_1 = _c.sent();
                         return [2 /*return*/, error_1];
-                    case 8: return [2 /*return*/];
+                    case 7: return [2 /*return*/];
                 }
             });
         });
@@ -98,7 +86,7 @@ var OrderService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.OrderModel.find()];
+                        return [4 /*yield*/, OrderSchema_1.OrderModel.find()];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_2 = _a.sent();
@@ -115,7 +103,7 @@ var OrderService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.OrderModel.findById(id)];
+                        return [4 /*yield*/, OrderSchema_1.OrderModel.findById(id)];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_3 = _a.sent();
@@ -132,7 +120,7 @@ var OrderService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, Order_1.ProductsModel.findById(id)];
+                        return [4 /*yield*/, OrderSchema_1.ProductsModel.findById(id)];
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_4 = _a.sent();

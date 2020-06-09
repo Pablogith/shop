@@ -1,0 +1,18 @@
+<section class="section">
+  <p class="section__author">
+    {{author | uppercase}}
+  </p>
+  <p class="section__date">
+    {{date | date: 'short'}}
+  </p>
+  <p class="section__rating">
+    <ngb-rating [rate]="rating">
+      <ng-template let-fill="fill" let-index="index">
+        <span class="star" [class.filled]="fill === 100">&#9733;</span>
+      </ng-template>
+    </ngb-rating>
+  </p>
+  <p class="section__content">
+    {{content}}
+  </p>
+</section>

@@ -143,12 +143,12 @@ var ProductController = /** @class */ (function () {
     };
     ProductController.createProduct = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, name_1, price, category, description, image, currency, isGood, response, error_4;
+            var _a, name_1, price, category, description, image, currency, comments, isGood, response, error_4;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 3, , 4]);
-                        _a = req.body, name_1 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency;
+                        _a = req.body, name_1 = _a.name, price = _a.price, category = _a.category, description = _a.description, image = _a.image, currency = _a.currency, comments = _a.comments;
                         isGood = [name_1, price, category, description, image].every(function (value) { return !!value; });
                         if (!isGood) return [3 /*break*/, 2];
                         return [4 /*yield*/, ProductService_1.default.addProduct({
@@ -157,7 +157,8 @@ var ProductController = /** @class */ (function () {
                                 category: category,
                                 description: description,
                                 image: image,
-                                currency: currency
+                                currency: currency,
+                                comments: comments
                             })];
                     case 1:
                         response = _b.sent();

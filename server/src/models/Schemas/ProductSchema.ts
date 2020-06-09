@@ -1,6 +1,7 @@
 // @ts-ignore
 import mongoose, {Schema} from 'mongoose';
 
+
 const ProductSchema = new Schema({
     name: {
         type: String,
@@ -32,7 +33,11 @@ const ProductSchema = new Schema({
         type: String,
         required: true,
         default: 'PLN'
-    }
+    },
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+    }],
 });
 
 const ProductModel = mongoose.model<mongoose.Document>('Product', ProductSchema);

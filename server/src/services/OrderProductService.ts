@@ -1,4 +1,4 @@
-import {ProductsModel} from "../models/Order";
+import {ProductsModel} from "../models/Schemas/OrderSchema";
 
 export default class OrderProductService {
     static async getProductFromOrder(id: string): Promise<any> {

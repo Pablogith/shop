@@ -1,0 +1,1 @@
+export const MONGO_URI: string = 'mongodb+srv://admin:zaq12wsx@shop-hh4ox.gcp.mongodb.net/test?retryWrites=true&w=majority';

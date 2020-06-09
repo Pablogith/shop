@@ -9,4 +9,5 @@ export default interface IProduct {
     image: string;
     _v?: number;
     data?: any
+    comments?: any;
 }

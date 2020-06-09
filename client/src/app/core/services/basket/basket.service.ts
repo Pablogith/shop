@@ -48,9 +48,11 @@ export class BasketService {
   decreaseTheAmount(itemId: string): number {
     const itemIndex: number = this.getItemIndex(itemId);
 
-    (this._basketElements[itemIndex].amount <= 1)
-      ? this._basketElements[itemIndex].amount = 1
-      : this._basketElements[itemIndex].amount--;
+    if (this._basketElements[itemIndex].amount <= 1) {
+      this._basketElements.splice(itemIndex, 1);
+    } else {
+      this._basketElements[itemIndex].amount--;
+    }
 
     return this._basketElements[itemIndex].amount;
   }

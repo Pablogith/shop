@@ -57,7 +57,7 @@ export class BasketSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.basketService.basketElements.forEach(element => this.price += element.price);
-    this.price.toFixed(2);
+    this.price = Math.round(this.price * 100) / 100;
     console.log(this.price);
   }
 
