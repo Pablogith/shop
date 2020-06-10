@@ -29,16 +29,15 @@ Project created with:
 * The possibility of buying goods
 
 ## Illustrations
-![Note Preview](https://imgur.com/ZyTRpPs.png)
-![Note Preview](https://imgur.com/Kmh6F1r.png)
-![Note Preview](https://imgur.com/wxGnsXC.png)
-![Note Preview](https://imgur.com/Uv3AR2h.png)
-![Note Preview](https://imgur.com/Z9hvsPv.png)
-![Note Preview](https://imgur.com/7rGlG1p.png)
+![Note Preview](https://imgur.com/ryGH7yC.png)
+![Note Preview](https://imgur.com/xDihZqd.png)
 ![Note Preview](https://imgur.com/bx9rK94.png)
 ![Note Preview](https://imgur.com/vExL0Dj.png)
-![Note Preview](https://imgur.com/xDihZqd.png)
-![Note Preview](https://imgur.com/guBVziu.png)
+![Note Preview](https://imgur.com/7rGlG1p.png)
+![Note Preview](https://imgur.com/Z9hvsPv.png)
 ![Note Preview](https://imgur.com/z3Db7Ru.png)
-
-![Note Preview](.png)
+![Note Preview](https://imgur.com/wxGnsXC.png)
+![Note Preview](https://imgur.com/Kmh6F1r.png)
+![Note Preview](https://imgur.com/acSHt4J.png)
+![Note Preview](https://imgur.com/Uv3AR2h.png)
+![Note Preview](https://imgur.com/guBVziu.png)
