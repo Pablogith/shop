@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CommentsService} from "../../../../core/http/comments/comments.service";
+import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../../../core/http/api/api.service";
 
 export interface IReview {
@@ -15,33 +17,37 @@ export interface IReview {
 })
 export class ReviewsComponent implements OnInit {
 
-  reviews: IReview[] = [
-    {
-      author: 'me',
-      createdAt: new Date(),
-      content: 'my comment my comment my commentvmy commentmy commentmy commentmy commentmy commentmy' +
-        ' commentmy commentmy commentmy commentmy comment',
-      rating: 4
-    },
-    {
-      author: 'me',
-      createdAt: new Date(),
-      content: 'my comment my comment my commentvmy commentmy commentmy commentmy commentmy commentmy' +
-        ' commentmy commentmy commentmy commentmy comment',
-      rating: 3
-    },
-    {
-      author: 'me',
-      createdAt: new Date(),
-      content: 'my comment my comment my commentvmy commentmy commentmy commentmy commentmy commentmy' +
-        ' commentmy commentmy commentmy commentmy comment',
-      rating: 1
-    }
-  ];
+  reviews: IReview[] = [];
+  productId: string;
 
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
+  constructor(
+    private apiService: ApiService,
+    private activatedRoute: ActivatedRoute,
+    private commentsService: CommentsService) {
   }
 
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.productId = params.productId;
+
+      this.apiService.getProduct(this.productId, 'sth').subscribe(
+        result => {
+          const comments: any[] = result.data.comments;
+          comments.forEach(comment => {
+            this.commentsService.getComment(comment).subscribe(
+              result => {
+                this.reviews.push(result.data);
+              },
+              error => {
+                console.log(error);
+              }
+            );
+          });
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    });
+  }
 }

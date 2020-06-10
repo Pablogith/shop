@@ -1,0 +1,40 @@
+<section class="section">
+  <form
+    (ngSubmit)="addComment()"
+    [formGroup]="commentForm"
+    class="section__form">
+    <label for="name">
+      Name: <br>
+      <input
+        [class.section__input--invalid]="author.touched && author.invalid"
+        class="section__input"
+        placeholder="Johny"
+        type="text"
+        id="name"
+        formControlName="author">
+    </label>
+    <label for="content">
+      Content: <br>
+      <input
+        [class.section__input--invalid]="content.touched && content.invalid"
+        class="section__input"
+        placeholder="Very good item"
+        type="text"
+        id="content"
+        formControlName="content">
+    </label>
+    <label>
+      <ngb-rating [(rate)]="currentRate" formControlName="rating">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+    </label>
+
+    <button
+      type="submit"
+      class="section__button">
+      Add
+    </button>
+  </form>
+</section>

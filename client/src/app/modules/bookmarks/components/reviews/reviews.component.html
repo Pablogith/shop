@@ -4,6 +4,7 @@
   <ng-template
     [ngIf]="reviews.length > 0"
     [ngIfElse]="reviewsEmpty">
+    <add-review></add-review>
     <review
       *ngFor="let review of reviews"
       [review]="review">
@@ -11,6 +12,7 @@
   </ng-template>
 
   <ng-template #reviewsEmpty>
+    <add-review></add-review>
     <h1>No opinion</h1>
   </ng-template>
 </section>

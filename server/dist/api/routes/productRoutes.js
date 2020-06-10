@@ -7,7 +7,7 @@ exports.router = void 0;
 var express_1 = __importDefault(require("express"));
 // @ts-ignore
 var ProductController_1 = __importDefault(require("../controllers/ProductController"));
-var productValidations_1 = require("../../helpers/productValidations");
+var productValidations_1 = require("../../middlewares/productValidations");
 var router = express_1.default.Router();
 exports.router = router;
 router.get('/products/:category', ProductController_1.default.getAllProductsFromCategory);

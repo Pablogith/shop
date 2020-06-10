@@ -101,6 +101,8 @@
     height: calc(100vh - 50px);
     display: flex;
     flex-direction: row;
+    padding-top: 70px;
+    box-sizing: border-box;
 
     &__title {
       font-size: 4rem;

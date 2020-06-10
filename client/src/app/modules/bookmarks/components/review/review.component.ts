@@ -15,24 +15,5 @@ export class ReviewComponent implements OnInit {
     this.ngbRatingConfig.max = 5;
   }
 
-  ngOnInit(): void {
-    console.log(this.review);
-  }
-
-  get author(): string {
-    return this.review.author;
-  }
-
-  get date(): Date {
-    return this.review.created;
-  }
-
-  get content(): string {
-    return this.review.content;
-  }
-
-  get rating(): number {
-    return this.review.rating;
-  }
-
+  ngOnInit(): void {}
 }

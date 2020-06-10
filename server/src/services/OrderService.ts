@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 export default class OrderService {
     static async addOrder(order: any): Promise<any> {
         try {
+
+
             let length = order.products.length;
 
             for (let i = 0; i < length; i++) {

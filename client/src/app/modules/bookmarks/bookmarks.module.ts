@@ -11,6 +11,7 @@ import {FilterByPriceComponent} from './components/filter-by-price/filter-by-pri
 import { SortProductsComponent } from './components/sort-products/sort-products.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewComponent } from './components/review/review.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReviewComponent } from './components/review/review.component';
     FilterByPriceComponent,
     SortProductsComponent,
     ReviewsComponent,
-    ReviewComponent
+    ReviewComponent,
+    AddReviewComponent
   ],
   imports: [
     BookmarksRoutingModule,

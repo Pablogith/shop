@@ -1,7 +1,7 @@
 import express from 'express';
 // @ts-ignore
 import ProductController from "../controllers/ProductController";
-import {productValidations} from "../../helpers/productValidations";
+import {productValidations} from "../../middlewares/productValidations";
 
 
 const router: any = express.Router();

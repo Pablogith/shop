@@ -1,0 +1,66 @@
+@import "src/assets/scss/base";
+
+.section {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      margin-top: 15px;
+    }
+  }
+
+  &__input {
+    height: 25px;
+    width: 250px;
+    outline: none;
+    border: 1px solid gray;
+    transition: all .3s ease;
+
+    &--invalid {
+      border: 2px solid rgb(227, 66, 66);
+    }
+  }
+
+  &__button {
+    width: 160px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: $main-color;
+    box-shadow: 0 3px 10px rgba(0, 213, 100, .3);
+    transition: all .3s ease;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 5px 13px rgba(0, 213, 100, .5);
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
+}
+.filled {
+  color: $main-color;
+}
+
+::ng-deep .snackBar--success {
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+}
+
+::ng-deep .snackBar--failed {
+  background-color: rgb(238, 89, 89);
+  color: white;
+  font-weight: 700;
+}
