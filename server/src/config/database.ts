@@ -7,7 +7,7 @@ import {MONGO_URI} from "./MONGO_URI";
 const MongoDBStore: any = require('connect-mongodb-session')(session);
 
 export default class Database {
-    private static MONGO_URI: string = MONGO_URI;
+    private static MONGO_URI: string = 'mongodb+srv://admin:zaq12wsx@shop-hh4ox.gcp.mongodb.net/test?retryWrites=true&w=majority';
 
     private static setStore(): void {
         const store: any = new MongoDBStore({

@@ -52,7 +52,7 @@ var App = /** @class */ (function () {
         this.controllers = controllers;
         this.port = port;
         this.app = express_1.default();
-        this.port = port || process.env.PORT;
+        this.port = process.env.PORT || port;
         this.setCors();
         this.initializeMiddleware();
         this.initializeControllers();
@@ -72,7 +72,10 @@ var App = /** @class */ (function () {
         });
     };
     App.prototype.setCors = function () {
-        var allowedOrigin = ['http://localhost:4200'];
+        var allowedOrigin = [
+            'http://localhost:4200',
+            'https://5ee130ecbf198b35448d1b4d--unruffled-perlman-f52c33.netlify.app/'
+        ];
         var methods = ['GET', 'POST', 'PUT', 'DELETE'];
         this.app.disable('x-powered-by');
         this.app.use(cors_1.default({

@@ -4,10 +4,11 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "nodemon ./dist/server.js",
+    "start": "node ./dist/server.js",
     "tsc-watch": "tsc --project tsconfig.json --watch",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "test": "jest ./src/**/*.ts"
+    "test": "jest ./src/**/*.ts",
+    "prod": "node ./dist/server.js"
   },
   "author": "pawelrelinski@gmail.com",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "connect-mongo": "^3.2.0",
     "connect-mongodb-session": "^2.3.2",
     "cookie-parser": "^1.4.5",
+    "core-util-is": "^1.0.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",

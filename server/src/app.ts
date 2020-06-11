@@ -15,7 +15,7 @@ export default class App {
 
     constructor(public controllers: any[], public port: any) {
         this.app = express();
-        this.port = port || process.env.PORT;
+        this.port = process.env.PORT || port;
 
         this.setCors();
         this.initializeMiddleware();
@@ -38,7 +38,10 @@ export default class App {
     }
 
     private setCors(): void {
-        const allowedOrigin: string[] = ['http://localhost:4200'];
+        const allowedOrigin: string[] = [
+            'http://localhost:4200',
+            'https://5ee130ecbf198b35448d1b4d--unruffled-perlman-f52c33.netlify.app/'
+        ];
         const methods: Methods[] = ['GET', 'POST', 'PUT', 'DELETE'];
 
         this.app.disable('x-powered-by');

@@ -43,7 +43,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = __importDefault(require("mongoose"));
 // @ts-ignore
 var express_session_1 = __importDefault(require("express-session"));
-var MONGO_URI_1 = require("./MONGO_URI");
 var MongoDBStore = require('connect-mongodb-session')(express_session_1.default);
 var Database = /** @class */ (function () {
     function Database() {
@@ -94,7 +93,7 @@ var Database = /** @class */ (function () {
             });
         });
     };
-    Database.MONGO_URI = MONGO_URI_1.MONGO_URI;
+    Database.MONGO_URI = 'mongodb+srv://admin:zaq12wsx@shop-hh4ox.gcp.mongodb.net/test?retryWrites=true&w=majority';
     return Database;
 }());
 exports.default = Database;
