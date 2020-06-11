@@ -10,7 +10,7 @@ import {ApiService} from "../api/api.service";
 })
 export class CommentsService {
 
-  private _url: string = 'http://localhost:3000/comments';
+  private _url: string = 'https://interesting-marmalade-thread.glitch.me/comments';
 
   constructor(
     private apiService: ApiService,

@@ -9,7 +9,7 @@ import {handleError} from "../handleError";
   providedIn: 'root'
 })
 export class ApiService {
-  private _url: string = 'http://localhost:3000/products';
+  private _url: string = 'https://interesting-marmalade-thread.glitch.me/products';
 
   constructor(private http: HttpClient) {
   }

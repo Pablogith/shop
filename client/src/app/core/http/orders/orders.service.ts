@@ -9,8 +9,8 @@ import {handleError} from "../handleError";
 })
 export class OrdersService {
 
-  private _url: string = 'http://localhost:3000/orders';
-  private _urlProd: string = 'http://localhost:3000/basketProduct';
+  private _url: string = 'https://interesting-marmalade-thread.glitch.me/orders';
+  private _urlProd: string = 'https://interesting-marmalade-thread.glitch.me/basketProduct';
 
   constructor(private http: HttpClient) {
   }
