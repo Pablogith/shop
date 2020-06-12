@@ -9,8 +9,8 @@ import {handleError} from "../handleError";
 })
 export class OrdersService {
 
-  private _url: string = 'https://interesting-marmalade-thread.glitch.me/orders';
-  private _urlProd: string = 'https://interesting-marmalade-thread.glitch.me/basketProduct';
+  private _url: string = 'https://try-app-exp.herokuapp.com/orders';
+  private _urlProd: string = 'https://try-app-exp.herokuapp.com/basketProduct';
 
   constructor(private http: HttpClient) {
   }

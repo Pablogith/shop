@@ -7,13 +7,15 @@ import {BasketComponent} from './components/basket/basket.component';
 import {BasketElementComponent} from "./components/basket-element/basket-element.component";
 import {BasketSummaryComponent} from './components/basket-summary/basket-summary.component';
 import {SuccessOrderComponent} from './components/success-order/success-order.component';
+import { RefreshComponent } from './components/refresh/refresh.component';
 
 @NgModule({
   declarations: [
     BasketComponent,
     BasketElementComponent,
     BasketSummaryComponent,
-    SuccessOrderComponent
+    SuccessOrderComponent,
+    RefreshComponent
   ],
   imports: [
     BasketRoutingModule,

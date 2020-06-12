@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {Basket} from "../../../../shared/models/IBasket";
 import {BasketService} from "../../../../core/services/basket/basket.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'basket',
@@ -10,11 +11,14 @@ import {BasketService} from "../../../../core/services/basket/basket.service";
 export class BasketComponent implements OnInit {
   products: Basket;
 
-  constructor(private basketService: BasketService) {
+  constructor(
+    private router: Router,
+    private basketService: BasketService) {
   }
 
   ngOnInit(): void {
     this.products = this.basketService.basketElements;
   }
 
+  updateSummaryPrice(event: string): void {}
 }

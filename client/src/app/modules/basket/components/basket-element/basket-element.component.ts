@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {IProduct} from "../../../../shared/models/IProduct";
@@ -13,6 +13,9 @@ import {BasketService} from "../../../../core/services/basket/basket.service";
 })
 export class BasketElementComponent implements OnInit {
   @Input() productData: IProductInformation;
+
+  @Output()
+  changeSummaryPrice: EventEmitter<string> = new EventEmitter<string>();
 
   product: IProduct;
 
@@ -55,6 +58,7 @@ export class BasketElementComponent implements OnInit {
   }
 
   setCounter(number: number): void {
+    this.changeSummaryPrice.emit("Change the counter");
     this.counterForm.controls['counter'].setValue(number);
   }
 }

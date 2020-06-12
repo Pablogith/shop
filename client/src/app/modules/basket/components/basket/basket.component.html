@@ -11,10 +11,14 @@
       <h1 class="content__title">Basket details</h1>
     </header>
     <section class="content__elements">
-      <basket-element *ngFor="let product of products" [productData]="product"></basket-element>
+      <basket-element
+        (changeSummaryPrice)="basketSummary.checkEvent($event)"
+        *ngFor="let product of products"
+        [productData]="product">
+      </basket-element>
     </section>
     <section class="content__summary">
-      <basket-summary></basket-summary>
+      <basket-summary #basketSummary></basket-summary>
     </section>
   </div>
 </section>

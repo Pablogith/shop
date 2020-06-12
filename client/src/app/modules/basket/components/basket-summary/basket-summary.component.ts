@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./basket-summary.component.scss']
 })
 export class BasketSummaryComponent implements OnInit {
-
   inputChecked: boolean = false;
   price: number = 0;
 
@@ -56,9 +55,13 @@ export class BasketSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.basketService.basketElements.forEach(element => this.price += element.price);
+    this.setPrice();
+  }
+
+  setPrice(): void {
+    this.price = 0;
+    this.price = this.basketService.basketElements.reduce((acc, el) => acc + el.price, 0);
     this.price = Math.round(this.price * 100) / 100;
-    console.log(this.price);
   }
 
   changeChecked(event: Event): void {
@@ -108,6 +111,10 @@ export class BasketSummaryComponent implements OnInit {
     );
   }
 
+  checkEvent(event: string): void {
+    this.setPrice();
+  }
+
   get paymentMethod(): AbstractControl {
     return this.order.get('paymentMethod');
   }
@@ -135,5 +142,4 @@ export class BasketSummaryComponent implements OnInit {
   get surname(): AbstractControl {
     return this.order.get('surname');
   }
-
 }

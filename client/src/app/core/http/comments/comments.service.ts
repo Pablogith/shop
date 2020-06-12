@@ -10,7 +10,7 @@ import {ApiService} from "../api/api.service";
 })
 export class CommentsService {
 
-  private _url: string = 'https://interesting-marmalade-thread.glitch.me/comments';
+  private _url: string = 'https://try-app-exp.herokuapp.com/comments';
 
   constructor(
     private apiService: ApiService,

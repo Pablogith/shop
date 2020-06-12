@@ -32,14 +32,6 @@ export class SortProductsComponent implements OnInit {
     {
       value: sortMethodType.pricesDecreasing,
       viewValue: 'Prices are decreasing'
-    },
-    {
-      value: sortMethodType.newest,
-      viewValue: 'Newest'
-    },
-    {
-      value: sortMethodType.oldest,
-      viewValue: 'Oldest'
     }
   ];
 

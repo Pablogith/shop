@@ -9,7 +9,7 @@ import {handleError} from "../handleError";
   providedIn: 'root'
 })
 export class ApiService {
-  private _url: string = 'https://interesting-marmalade-thread.glitch.me/products';
+  private _url: string = 'https://try-app-exp.herokuapp.com/products';
 
   constructor(private http: HttpClient) {
   }

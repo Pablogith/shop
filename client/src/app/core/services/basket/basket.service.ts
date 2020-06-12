@@ -10,6 +10,7 @@ export class BasketService {
   }
 
   private _basketElements: Basket = [];
+  private _summaryPrice: number = 0;
 
   private getItemIndex(itemId: string): number {
     return this._basketElements.findIndex((item: IProductInformation) => item._id === itemId);
@@ -38,9 +39,13 @@ export class BasketService {
   increaseTheAmount(itemId: string): number {
     const itemIndex: number = this.getItemIndex(itemId);
 
-    (this._basketElements[itemIndex].amount >= 5)
-      ? this._basketElements[itemIndex].amount = 5
-      : this._basketElements[itemIndex].amount++;
+    if  (this._basketElements[itemIndex].amount >= 5) {
+      this._basketElements[itemIndex].amount = 5
+    } else {
+      let itemPrice: number = this._basketElements[itemIndex].price / this._basketElements[itemIndex].amount;
+      this._basketElements[itemIndex].amount++;
+      this._basketElements[itemIndex].price = itemPrice * this._basketElements[itemIndex].amount;
+    }
 
     return this._basketElements[itemIndex].amount;
   }
@@ -49,9 +54,11 @@ export class BasketService {
     const itemIndex: number = this.getItemIndex(itemId);
 
     if (this._basketElements[itemIndex].amount <= 1) {
-      this._basketElements.splice(itemIndex, 1);
+      this._basketElements.splice(itemIndex, 1)
     } else {
+      let itemPrice: number = this._basketElements[itemIndex].price / this._basketElements[itemIndex].amount;
       this._basketElements[itemIndex].amount--;
+      this._basketElements[itemIndex].price = itemPrice * this._basketElements[itemIndex].amount;
     }
 
     return this._basketElements[itemIndex].amount;
@@ -59,6 +66,10 @@ export class BasketService {
 
   get basketElements(): Basket {
     return this._basketElements;
+  }
+
+  get summaryPrice(): number {
+    return this._summaryPrice;
   }
 
   resetBasket(): void {
