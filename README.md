@@ -1,6 +1,5 @@
 # shop
 Simple shop web app.
-Link to live app: https://5ee37540d464fd41e8ef30da--unruffled-perlman-f52c33.netlify.app/
 
 
 ## Table of contents
